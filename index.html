@@ -1,0 +1,2417 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8fa">
+  <meta name="description" content="Bó hoa tulip và tấm thiệp nhỏ, gửi những lời chúc ngọt ngào nhất tặng Jian nhân ngày Phụ nữ Việt Nam 20/10.">
+  <title>Bó hoa tulip dành tặng Jian · 20/10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fffdfb;
+      --blush: #fff8fa;
+      --rose: #d35277;
+      --tulip-pink: #e26388;
+      --tulip-coral: #e56c52;
+      --tulip-gold: #e6a827;
+      --ink: #6d2f44;
+      --muted: #8d5d6d;
+      --line: #ecd3db;
+      --leaf: #527958;
+      --bouquet-size: clamp(230px, calc(100dvh - 280px), 570px);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+      font-synthesis: none;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html, body { margin: 0; min-width: 320px; min-height: 100%; }
+    body {
+      background: radial-gradient(ellipse at 50% 46%, #fffefe 0%, #fff8fa 48%, #fcecf2 100%);
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; cursor: pointer; touch-action: manipulation; }
+    button:focus-visible, a:focus-visible, [tabindex]:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--ink); outline-offset: 5px;
+    }
+    main {
+      min-height: 100vh; min-height: 100dvh;
+      display: grid; align-content: center;
+      position: relative; isolation: isolate;
+      padding: max(60px, calc(env(safe-area-inset-top) + 40px)) clamp(16px, 3vw, 48px) max(24px, env(safe-area-inset-bottom));
+    }
+    main::before {
+      content: ''; position: absolute; left: 50%; top: 50%; z-index: -1;
+      width: min(92vw, 750px); aspect-ratio: 1;
+      transform: translate(-50%, -50%); border-radius: 50%;
+      background: radial-gradient(circle, rgba(253, 218, 229, 0.45), rgba(254, 237, 243, 0.2) 58%, transparent 74%);
+      filter: blur(28px); pointer-events: none;
+    }
+    .greeting {
+      width: fit-content; max-width: 100%; margin: 0 auto 10px;
+      position: relative; z-index: 1; text-align: center;
+    }
+    .occasion {
+      margin: 0 0 10px; font-size: 13px; letter-spacing: 0.5px;
+      color: var(--muted); text-transform: uppercase;
+    }
+    .occasion span {
+      margin-left: 8px; color: var(--rose); font-weight: 700;
+      background: #fde8ef; padding: 3px 8px; border-radius: 12px;
+      border: 1px solid #f6cad7;
+    }
+    h1, h2, .letter-recipient {
+      font-family: "Playfair Display", "Palatino Linotype", Georgia, serif;
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0; font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.15; letter-spacing: -0.8px; color: var(--ink);
+    }
+    h1 em {
+      font-style: italic; color: var(--rose);
+    }
+    .greeting-caption {
+      font-size: 14.5px; color: var(--muted); margin: 10px 0 0;
+      font-weight: 400;
+    }
+    .gift-layout {
+      width: min(100%, 1060px); margin-inline: auto;
+      display: grid; grid-template-columns: minmax(0, 1fr); align-items: start;
+      gap: 32px clamp(28px, 4vw, 60px);
+    }
+    .scene-column {
+      min-width: 0; display: flex; flex-direction: column; align-items: center;
+    }
+    .gift-visuals {
+      width: 100%; margin: 4px auto 0; display: grid; place-items: center;
+    }
+    .bouquet-composition {
+      position: relative; min-width: 0; margin: -10px auto -6px;
+      width: min(100%, var(--bouquet-size));
+      transform-origin: top left;
+    }
+    #bouquetStageWrapper {
+      position: relative; width: 100%; aspect-ratio: 1; border-radius: 46%;
+      cursor: pointer; touch-action: manipulation;
+      animation: bouquet-entrance 1.15s cubic-bezier(.16, 1, .3, 1) both;
+    }
+    #bouquetCanvas { width: 100%; height: 100%; display: block; }
+    .envelope-button {
+      position: absolute; right: 10px; top: 65%; width: clamp(128px, 30%, 166px);
+      padding: 0; border: 0; background: transparent; text-align: center;
+      transform: rotate(-7deg); animation: envelope-arrival .8s cubic-bezier(.2,.8,.2,1) both;
+      cursor: pointer; z-index: 5;
+    }
+    .envelope {
+      position: relative; display: block; width: 110px; height: 75px; margin: 0 auto 12px;
+      background: #f7dbe3; border: 1px solid #e3b5c4; border-radius: 3px 3px 6px 6px;
+      box-shadow: 0 10px 22px rgba(109, 47, 68, 0.16);
+      transition: transform .35s cubic-bezier(.2,.8,.2,1);
+    }
+    .envelope::before {
+      content: ''; position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(32deg, #fae8ee 49%, transparent 50%) left / 51% 100% no-repeat,
+                  linear-gradient(-32deg, #f7e0e8 49%, transparent 50%) right / 51% 100% no-repeat;
+      border-radius: inherit;
+    }
+    .envelope::after {
+      content: ''; position: absolute; inset: -1px -1px 0; z-index: 3;
+      background: #fdecf2; clip-path: polygon(0 0, 100% 0, 50% 62%);
+      transform-origin: top; transition: transform .4s ease;
+    }
+    .envelope-letter {
+      position: absolute; inset: -12px 10px 10px; padding: 12px 0 0;
+      background: var(--paper); border: 1px solid var(--line);
+      font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 13.5px;
+      transition: transform .4s ease; color: var(--rose);
+      box-shadow: 0 2px 6px rgba(109, 47, 68, 0.08);
+    }
+    .envelope-seal {
+      position: absolute; left: calc(50% - 13px); top: 30px; z-index: 4;
+      width: 26px; height: 26px; border-radius: 50%; background: #be3e65;
+      color: #fff6f8; font: 17px/26px Georgia, serif; box-shadow: 0 2px 5px rgba(109, 47, 68, 0.28);
+      display: grid; place-items: center;
+    }
+    .envelope-caption, .envelope-action { display: block; font-size: 11px; line-height: 1.5; }
+    .envelope-caption { color: var(--muted); font-weight: 500; }
+    .envelope-action {
+      font-size: 13.5px; text-decoration: underline; text-underline-offset: 4px;
+      margin-top: 3px; font-weight: 600; color: var(--ink);
+    }
+    @media (hover: hover) {
+      .envelope-button:hover .envelope { transform: translateY(-4px) scale(1.03); }
+      .envelope-button:hover .envelope-letter { transform: translateY(-8px); }
+      .envelope-button:hover .envelope::after { transform: rotateX(36deg); }
+    }
+    .scene-footer {
+      transform-origin: top left; width: min(100%, 540px); margin-top: 8px;
+      text-align: center; position: relative; z-index: 1;
+    }
+    .bouquet-hint {
+      font-size: 12.5px; color: var(--muted); margin: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .bouquet-hint span { font-size: 15px; }
+    .rose-wish {
+      font-family: "Playfair Display", Georgia, serif; font-style: italic;
+      font-size: 17.5px; line-height: 1.6; margin: 8px auto 2px;
+      max-width: 480px; min-height: 56px; color: var(--ink);
+      text-wrap: pretty;
+    }
+    .rose-wish:empty { min-height: 0; margin: 0; }
+    .rose-wish.is-new { animation: wish-arrival .4s ease both; }
+    .text-button {
+      border: 0; background: transparent; padding: 12px 10px; font-size: 12.5px;
+      text-decoration: underline; text-underline-offset: 4px; color: var(--ink);
+      font-weight: 500; transition: color .2s;
+    }
+    .text-button:hover { color: var(--rose); }
+    .text-button span { display: inline-block; margin-left: 4px; text-decoration: none; }
+    #replayBloom { margin-top: 4px; }
+    #ambientPetalsCanvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      display: block; pointer-events: none; z-index: 2;
+    }
+    .card-dialog {
+      position: relative; z-index: 4; inset: auto; justify-self: center; align-self: start;
+      width: min(100%, 620px); min-width: 0; max-width: none; max-height: none; margin: 0;
+      padding: 0; border: 0; border-radius: 6px; color: var(--ink);
+      background: var(--paper); box-shadow: 0 22px 75px rgba(109, 47, 68, 0.15), 0 3px 10px rgba(109, 47, 68, 0.08);
+      overflow: visible; scroll-margin-block: 24px;
+    }
+    .card-dialog[open] { animation: letter-open .45s .3s cubic-bezier(.16,1,.3,1) both; }
+    .letter-paper {
+      position: relative; padding: 24px 34px 16px;
+      background: linear-gradient(90deg, transparent 49.7%, #eedde33b 50%, transparent 50.3%), var(--paper);
+    }
+    .letter-paper::before {
+      content: ''; position: absolute; inset: 12px; border: 1px solid #ecd3dbb0;
+      border-radius: 3px; pointer-events: none;
+    }
+    .close-button {
+      position: absolute; right: 16px; top: 16px; z-index: 2; width: 36px; height: 36px;
+      background: transparent; border: 0; border-radius: 50%; font-size: 26px;
+      font-weight: 300; display: grid; place-items: center; color: var(--muted);
+      transition: background .2s, color .2s;
+    }
+    .close-button:hover { background: #faecf2; color: var(--ink); }
+    .letter-date {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      font-family: "Playfair Display", Georgia, serif; font-size: 28px; line-height: 1.1;
+      color: var(--rose); margin: 0 0 12px;
+    }
+    .date-stem { width: 1px; height: 32px; background: var(--line); transform: rotate(25deg); }
+    .letter-recipient {
+      margin: 0 0 12px; font-size: 20px; overflow-wrap: anywhere;
+    }
+    #cardTitle {
+      margin: 0; font-size: clamp(26px, 3vw, 32px); line-height: 1.25;
+      letter-spacing: -0.5px; color: var(--ink);
+    }
+    .letter-flower {
+      text-align: center; font-size: 28px; line-height: 1;
+      color: var(--rose); margin: 10px 0 12px;
+    }
+    .letter-message {
+      white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14.5px;
+      line-height: 1.75; margin: 0; color: #562436;
+    }
+    .message-paragraph { display: block; }
+    .message-paragraph + .message-paragraph { margin-top: 14px; }
+    .letter-signoff { margin-top: 18px; text-align: right; }
+    .letter-signoff > p:first-child { margin: 0 0 4px; font-size: 12.5px; color: var(--muted); }
+    .letter-signature {
+      font-family: "Playfair Display", Georgia, serif; font-style: italic;
+      font-size: 22px; line-height: 1.4; margin: 0; color: var(--rose);
+      overflow-wrap: anywhere;
+    }
+    .letter-fold {
+      height: 1px; margin: 16px -34px 6px; background: #ecd3db88;
+      box-shadow: 0 1px 2px rgba(109, 47, 68, 0.06);
+    }
+    .letter-actions { text-align: center; display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+    .letter-actions .text-button { padding-block: 8px; font-size: 13px; }
+    .card-status { font-size: 12px; color: var(--muted); text-align: center; margin: 0; line-height: 1.6; }
+    .card-status:not(:empty) { padding: 8px 0; }
+    .editor-intro { margin: 10px 0; font-size: 12.5px; color: var(--muted); }
+    .editor-title { font-size: 26px; line-height: 1.2; margin: 0 0 20px; color: var(--ink); }
+    #cardEditor label { display: block; font-size: 13px; font-weight: 600; margin: 16px 0 6px; color: var(--ink); }
+    #cardEditor input, #cardEditor textarea {
+      width: 100%; border: 1px solid #dcb8c5; border-radius: 6px;
+      background: #fff9fb; color: var(--ink); padding: 11px 14px;
+      font-size: 14px; line-height: 1.6;
+    }
+    #cardEditor textarea { resize: vertical; min-height: 150px; }
+    .editor-hint { font-size: 11.5px; color: var(--muted); line-height: 1.6; margin-top: 12px; }
+    .editor-actions { display: flex; align-items: center; gap: 14px; margin: 20px 0 10px; }
+    .primary-button {
+      border: 1px solid var(--ink); border-radius: 6px; padding: 11px 22px;
+      font-size: 13.5px; font-weight: 600; background: var(--ink); color: var(--paper);
+      transition: background .2s, transform .2s;
+    }
+    .primary-button:hover { background: #551d30; transform: translateY(-1px); }
+    .noscript-message { text-align: center; font-size: 14px; }
+
+    /* MEMORY ALBUM */
+    .memory-album {
+      position: relative; z-index: 3; width: min(100%, 860px); min-width: 0;
+      margin: clamp(36px, 4.5vw, 60px) auto 12px; text-align: center; scroll-margin-top: 32px;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);
+    }
+    .memory-album.is-revealed { opacity: 1; transform: none; }
+    .album-heading { margin-bottom: 24px; }
+    .album-note { color: var(--muted); font-size: 12.5px; line-height: 1.7; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    #albumTitle {
+      font-size: clamp(26px, 3.2vw, 36px); line-height: 1.25; margin: 0 0 12px;
+      letter-spacing: -0.5px; color: var(--ink);
+    }
+    .album-photos {
+      display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px;
+      padding: 18px 18px 14px; place-items: center;
+    }
+    .portrait-card {
+      position: relative; min-width: 0; width: 100%; max-width: 280px;
+      justify-self: center; margin: 0; padding: 12px 12px 4px;
+      background: var(--paper); border: 1px solid #ecd3dbb0;
+      border-radius: 4px;
+      box-shadow: 0 16px 45px rgba(109, 47, 68, 0.12), 0 3px 8px rgba(109, 47, 68, 0.06);
+      transform-origin: center; transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease;
+    }
+    .portrait-photo {
+      overflow: hidden; aspect-ratio: 3 / 4; background: #f3e4e7;
+      border-radius: 2px;
+    }
+    .portrait-photo img {
+      display: block; width: 100%; height: 100%; object-fit: cover; object-position: center;
+      transition: transform .5s ease;
+    }
+    .album-card:nth-child(2) .portrait-photo img {
+      object-position: 53% center;
+    }
+    .portrait-card:hover .portrait-photo img { transform: scale(1.03); }
+    .portrait-card figcaption { padding: 16px 6px 18px; text-align: center; }
+    .portrait-dedication {
+      display: block; font-family: "Playfair Display", Georgia, serif;
+      font-style: italic; font-size: 17.5px; line-height: 1.45; color: var(--ink);
+    }
+    .portrait-date {
+      display: block; color: var(--muted); margin-top: 8px;
+      font-size: 11.5px; line-height: 1.6; font-weight: 500;
+    }
+    .album-card { grid-area: 1 / 1; width: min(100%, 250px); }
+    .album-card:nth-child(1) { z-index: 3; transform: rotate(-3.5deg); }
+    .album-card:nth-child(2) { z-index: 2; transform: translate(14px, -6px) rotate(6.5deg); }
+    .album-card:nth-child(3) { z-index: 1; transform: translate(-14px, -10px) rotate(-8deg); }
+    .album-edit-hint, .album-status {
+      max-width: 520px; margin: 0 auto 16px; color: var(--muted); font-size: 12px; line-height: 1.7;
+    }
+    .album-status:empty { display: none; }
+    .photo-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 0 6px; padding: 0 0 8px; }
+    .photo-actions .text-button { min-height: 40px; padding: 8px 6px; }
+    .photo-actions button:disabled { opacity: .5; cursor: default; }
+    .album-card[aria-busy="true"] .portrait-photo { opacity: .65; }
+    .memory-album.is-spread .album-photos {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .memory-album.is-spread .album-card {
+      grid-area: auto; transform: rotate(var(--photo-angle));
+      animation: photo-unfold .65s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .memory-album.is-spread .album-card:nth-child(1) { --photo-angle: -4deg; }
+    .memory-album.is-spread .album-card:nth-child(2) { --photo-angle: 2deg; animation-delay: .12s; }
+    .memory-album.is-spread .album-card:nth-child(3) { --photo-angle: -2.5deg; animation-delay: .24s; }
+    .album-footnote {
+      margin: 24px 0 0; color: var(--muted);
+      font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 15.5px;
+    }
+    @keyframes photo-unfold {
+      from { opacity: 0; transform: translateY(22px) rotate(0); }
+      to { opacity: 1; transform: translateY(0) rotate(var(--photo-angle)); }
+    }
+    @media (min-width: 1100px) {
+      body.card-open .gift-layout {
+        grid-template-columns: minmax(0, 1.15fr) minmax(420px, 500px);
+        align-items: center;
+      }
+      body.card-open .bouquet-composition { width: min(100%, var(--bouquet-size)); }
+      body.card-open .envelope-button { right: 0; width: 128px; }
+      body.card-open .envelope { width: 92px; height: 62px; }
+      body.card-open .envelope-seal { top: 24px; }
+      body.card-open .envelope-caption { font-size: 10px; }
+      body.card-open .envelope-action { font-size: 12px; }
+      body.card-open .card-dialog { width: 100%; }
+    }
+    @media (min-width: 601px) and (max-width: 1099px) {
+      body.card-open .bouquet-composition { width: min(100%, var(--bouquet-size)); }
+    }
+    @media (max-width: 600px) {
+      .occasion { font-size: 12px; margin-bottom: 6px; }
+      .greeting { margin-bottom: 6px; }
+      .greeting-caption { font-size: 13px; margin-top: 6px; }
+      .gift-visuals { margin-top: 2px; }
+      .bouquet-composition { margin-top: 0; margin-bottom: 4px; width: min(100%, var(--bouquet-size)); }
+      .envelope-button { right: 6px; top: 68%; width: 130px; }
+      .envelope { width: 90px; height: 62px; margin-bottom: 8px; }
+      .envelope-seal { top: 24px; }
+      .envelope-caption { font-size: 10px; }
+      .envelope-action { font-size: 12px; }
+      .rose-wish { font-size: 16px; padding: 0 10px; }
+      .letter-paper { padding: 20px 22px 12px; }
+      .letter-fold { margin-left: -22px; margin-right: -22px; }
+      #cardTitle { font-size: 27px; }
+      .memory-album.is-spread .album-photos { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    }
+    @keyframes bouquet-entrance { from { opacity: 0; transform: translateY(18px) scale(.92); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes envelope-arrival { from { opacity: 0; transform: translateY(14px) rotate(-12deg); } to { opacity: 1; transform: translateY(0) rotate(-7deg); } }
+    @keyframes letter-open { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes wish-arrival { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <canvas id="ambientPetalsCanvas" aria-hidden="true"></canvas>
+
+    <header class="greeting">
+      <p class="occasion">Ngày Phụ nữ Việt Nam <span>20/10</span></p>
+      <h1>Một bó hoa tulip nhỏ,<br>gửi trọn yêu thương tặng <em>Jian</em>.</h1>
+      <p class="greeting-caption">Mong ngày hôm nay của Jian thật dịu dàng, rạng ngời và ngập tràn niềm vui.</p>
+    </header>
+
+    <div class="gift-layout">
+      <section class="scene-column" aria-label="Bó hoa tulip và những lời chúc 20/10">
+        <div class="gift-visuals">
+          <div class="bouquet-composition">
+            <div id="bouquetStageWrapper" role="button" tabindex="0"
+              aria-label="Bó hoa tulip Hà Lan. Nhấn Enter hoặc chạm hoa để nhận lời chúc; dùng phím mũi tên để chọn bông hoa."
+              aria-describedby="bouquetHint">
+              <canvas id="bouquetCanvas" aria-hidden="true"></canvas>
+            </div>
+            <button class="envelope-button" id="openCard" type="button" aria-haspopup="dialog" aria-controls="greetingCard" aria-expanded="false" hidden>
+              <span class="envelope" aria-hidden="true">
+                <span class="envelope-letter">Gửi Jian</span>
+                <span class="envelope-seal">♡</span>
+              </span>
+              <span class="envelope-caption">Có một tấm thiệp cho bạn</span>
+              <span class="envelope-action">Mở thiệp</span>
+            </button>
+          </div>
+        </div>
+
+        <footer class="scene-footer">
+          <p id="bouquetHint" class="bouquet-hint"><span aria-hidden="true">🌷</span> Chạm một bông hoa để nhận lời chúc dành riêng cho bạn</p>
+          <p id="roseWish" class="rose-wish" role="status" aria-live="polite" aria-atomic="true"></p>
+          <button class="text-button" id="replayBloom" type="button">Cho hoa nở lại <span aria-hidden="true">↻</span></button>
+        </footer>
+      </section>
+
+      <dialog id="greetingCard" class="card-dialog" aria-labelledby="cardTitle">
+        <div class="letter-paper">
+          <button class="close-button" id="closeCard" type="button" aria-label="Đóng thiệp">×</button>
+          <div id="cardReading">
+            <div class="letter-date" aria-label="Ngày 20 tháng 10">
+              <span>20</span><span class="date-stem" aria-hidden="true"></span><span>10</span>
+            </div>
+            <p class="letter-recipient">Gửi <span id="cardRecipient">Jian</span>,</p>
+            <h2 id="cardTitle">Chúc Jian một ngày 20/10<br>thật nhiều niềm vui & hạnh phúc.</h2>
+            <div class="letter-flower" aria-hidden="true">🌷</div>
+            <p id="cardMessage" class="letter-message"></p>
+            <div class="letter-signoff">
+              <p>Với thật nhiều thương mến,</p>
+              <p id="cardSender" class="letter-signature"></p>
+            </div>
+            <div class="letter-fold" aria-hidden="true"></div>
+            <div class="letter-actions">
+              <button id="viewAlbum" class="text-button" type="button" aria-controls="memoryAlbum">Xem album kỷ niệm <span aria-hidden="true">♡</span></button>
+              <button id="editCard" class="text-button" type="button">Viết lời chúc riêng <span aria-hidden="true">✎</span></button>
+            </div>
+          </div>
+
+          <form id="cardEditor" hidden>
+            <p class="editor-intro">Một tấm thiệp mang lời gửi gắm của bạn.</p>
+            <h2 id="editorTitle" class="editor-title">Viết chút yêu thương</h2>
+            <label for="recipientInput">Gửi đến</label>
+            <input id="recipientInput" name="recipient" maxlength="60" required autocomplete="off">
+            <label for="messageInput">Lời chúc 20/10</label>
+            <textarea id="messageInput" name="message" rows="7" maxlength="1500" required></textarea>
+            <label for="senderInput">Người gửi</label>
+            <input id="senderInput" name="sender" maxlength="60" required autocomplete="off">
+            <p class="editor-hint">Lời chúc được lưu trên trình duyệt này.</p>
+            <div class="editor-actions">
+              <button class="primary-button" type="submit">Lưu lời chúc</button>
+              <button class="text-button" id="cancelEdit" type="button">Hủy</button>
+            </div>
+          </form>
+          <p id="cardStatus" class="card-status" role="status" aria-live="polite"></p>
+        </div>
+      </dialog>
+    </div>
+
+    <section id="memoryAlbum" class="memory-album" aria-labelledby="albumTitle" hidden>
+      <header class="album-heading">
+        <p class="album-note">Một chút kỷ niệm · Dành riêng cho Jian</p>
+        <h2 id="albumTitle">Những khoảnh khắc dịu dàng</h2>
+        <button id="toggleAlbum" class="text-button" type="button" aria-expanded="false" aria-controls="albumPhotos">Xòe album <span aria-hidden="true">♡</span></button>
+        <button id="editAlbum" class="text-button" type="button" aria-expanded="false" aria-controls="albumPhotos">Thay ảnh <span aria-hidden="true">✎</span></button>
+      </header>
+      <p id="albumEditHint" class="album-edit-hint" hidden>Chọn ảnh từ thiết bị của bạn, tối đa 20 MB mỗi ảnh. Ảnh được lưu trên trình duyệt này, không tự gửi đi đâu.</p>
+      <p id="albumStatus" class="album-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div id="albumPhotos" class="album-photos">
+        <figure class="portrait-card album-card">
+          <div class="portrait-photo">
+            <img src="./cb951fc562b9e2e7bba85.jpg" alt="Ảnh kỷ niệm xinh đẹp của Jian bên vườn hoa cúc họa mi" width="960" height="1280" decoding="async">
+          </div>
+          <figcaption>
+            <span class="portrait-dedication">Nụ cười dịu dàng của Jian.</span>
+            <span class="portrait-date">Đêm hoa cúc họa mi ngọt ngào ♡</span>
+          </figcaption>
+          <div class="photo-actions" hidden>
+            <button class="text-button change-photo" type="button" aria-label="Đổi ảnh thứ nhất">Đổi ảnh</button>
+            <button class="text-button reset-photo" type="button" aria-label="Khôi phục ảnh thứ nhất" disabled>Ảnh ban đầu</button>
+            <input class="photo-input" type="file" accept="image/*" aria-label="Chọn ảnh thứ nhất" hidden>
+          </div>
+        </figure>
+
+        <figure class="portrait-card album-card">
+          <div class="portrait-photo">
+            <img src="./13895e242358a306fa4911.jpg" alt="Khoảnh khắc Jian giữa cánh đồng lau hoàng hôn ấm áp" width="1280" height="850" decoding="async" loading="lazy">
+          </div>
+          <figcaption>
+            <span class="portrait-dedication">Ánh nắng chiều và bình yên.</span>
+            <span class="portrait-date">Chiều hoàng hôn ấm áp mùa thu 🌾</span>
+          </figcaption>
+          <div class="photo-actions" hidden>
+            <button class="text-button change-photo" type="button" aria-label="Đổi ảnh thứ hai">Đổi ảnh</button>
+            <button class="text-button reset-photo" type="button" aria-label="Khôi phục ảnh thứ hai" disabled>Ảnh ban đầu</button>
+            <input class="photo-input" type="file" accept="image/*" aria-label="Chọn ảnh thứ hai" hidden>
+          </div>
+        </figure>
+
+        <figure class="portrait-card album-card">
+          <div class="portrait-photo">
+            <img src="./f1ec39444438c4669d2910.jpg" alt="Nụ cười rạng rỡ của Jian bên hoa cúc trắng" width="720" height="1280" decoding="async" loading="lazy">
+          </div>
+          <figcaption>
+            <span class="portrait-dedication">Mong Jian luôn rạng ngời.</span>
+            <span class="portrait-date">Khăn len xanh và nụ cười tỏa nắng ✿</span>
+          </figcaption>
+          <div class="photo-actions" hidden>
+            <button class="text-button change-photo" type="button" aria-label="Đổi ảnh thứ ba">Đổi ảnh</button>
+            <button class="text-button reset-photo" type="button" aria-label="Khôi phục ảnh thứ ba" disabled>Ảnh ban đầu</button>
+            <input class="photo-input" type="file" accept="image/*" aria-label="Chọn ảnh thứ ba" hidden>
+          </div>
+        </figure>
+      </div>
+      <p class="album-footnote">Có những điều nhỏ bé, nhớ lại vẫn thấy ấm lòng.</p>
+    </section>
+
+    <noscript><p class="noscript-message">Bật JavaScript để ngắm hoa tulip nở và mở thiệp 20/10 tặng Jian nhé.</p></noscript>
+  </main>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* =========================================================================
+       1. RANDOM GENERATOR & COLOR UTILITIES
+       ========================================================================= */
+    function createSeededRandom(seed = 1) {
+      let s = seed % 2147483647;
+      if (s <= 0) s += 2147483646;
+      return function () {
+        s = (s * 16807) % 2147483647;
+        return (s - 1) / 2147483646;
+      };
+    }
+
+    function rgbaStr(hex, alpha = 1) {
+      const clean = hex.replace('#', '');
+      const num = parseInt(clean, 16);
+      const r = (num >> 16) & 255;
+      const g = (num >> 8) & 255;
+      const b = num & 255;
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    /* =========================================================================
+       2. TULIP COLOR PALETTES & WHISPER NOTES DEDICATED TO JIAN
+       ========================================================================= */
+    const TULIP_PALETTES = {
+      angeliqueBlush: {
+        baseTone: '#CADBB8',     // pale tender jade at receptacle
+        deepCore: '#B92D57',     // deep raspberry rose
+        innerShadow: '#DC4C79',  // vivid magenta rose
+        midBelly: '#F392AC',     // dreamy blush pink
+        outerBlush: '#FCD8E3',   // soft pastel petal
+        lipHighlight: '#FFF8FA', // porcelain white rim
+        throatTone: '#34101E',   // dark velvet chalice center
+        stamenColor: '#58182B',
+        antherPollen: '#E8A735',
+        creviceShadow: 'rgba(92, 22, 44, 0.26)'
+      },
+      apricotSunset: {
+        baseTone: '#D4E0B4',
+        deepCore: '#C44C2D',     // warm terracotta sunset
+        innerShadow: '#DF6C4C',  // vibrant peach
+        midBelly: '#F7A082',     // soft apricot
+        outerBlush: '#FEDECF',   // warm cream blush
+        lipHighlight: '#FFFDF7',
+        throatTone: '#482012',
+        stamenColor: '#6B311B',
+        antherPollen: '#F5BE47',
+        creviceShadow: 'rgba(110, 40, 22, 0.25)'
+      },
+      royalCrimson: {
+        baseTone: '#A6C59B',
+        deepCore: '#7A0E26',     // velvety ruby wine
+        innerShadow: '#A91B3A',
+        midBelly: '#D63456',     // rich crimson scarlet
+        outerBlush: '#F87590',   // luminous coral pink
+        lipHighlight: '#FFEBF0',
+        throatTone: '#29060E',
+        stamenColor: '#3E0A17',
+        antherPollen: '#E59F28',
+        creviceShadow: 'rgba(75, 10, 24, 0.32)'
+      },
+      creamyPearl: {
+        baseTone: '#BEDAB5',
+        deepCore: '#C4B47E',     // pale gold butter
+        innerShadow: '#D8C996',
+        midBelly: '#F3ECCF',     // rich ivory cream
+        outerBlush: '#FAF7ED',   // pearl white
+        lipHighlight: '#FFFFFF',
+        throatTone: '#443A1B',
+        stamenColor: '#5E522B',
+        antherPollen: '#ECC849',
+        creviceShadow: 'rgba(95, 85, 55, 0.20)'
+      },
+      lavenderLilac: {
+        baseTone: '#C2D7BD',
+        deepCore: '#682D7F',     // deep French violet
+        innerShadow: '#8F4AA8',
+        midBelly: '#BF82D8',     // lavender lilac
+        outerBlush: '#E8C7F5',   // soft pastel lilac
+        lipHighlight: '#FCF7FF',
+        throatTone: '#2E1038',
+        stamenColor: '#481958',
+        antherPollen: '#E8BE48',
+        creviceShadow: 'rgba(68, 25, 82, 0.26)'
+      },
+      sunnyCanary: {
+        baseTone: '#CBDCA2',
+        deepCore: '#BA8006',     // deep honey amber
+        innerShadow: '#DC9B10',
+        midBelly: '#F8C62A',     // bright sunny gold
+        outerBlush: '#FDE97E',   // canary yellow
+        lipHighlight: '#FFFFF2',
+        throatTone: '#543802',
+        stamenColor: '#6E4B06',
+        antherPollen: '#FCEBA2',
+        creviceShadow: 'rgba(115, 80, 10, 0.22)'
+      }
+    };
+
+    const WHISPER_NOTES = [
+      'Chúc Jian một ngày 20/10 ngập tràn niềm vui, luôn rạng rỡ như những đóa tulip đầu mùa!',
+      'Mong Jian luôn được yêu thương, trân trọng và hạnh phúc theo cách của riêng mình.',
+      'Chúc Jian luôn bình yên trong tâm hồn, tự tin và vững bước trên mọi con đường.',
+      'Một đóa tulip gửi tặng nụ cười của Jian. Hãy luôn tươi vui và yêu đời nhé!',
+      'Chúc những ước mơ và dự định của Jian sớm đơm hoa kết trái thật ngọt ngào.',
+      'Mong mỗi ngày mới của Jian đều có một lý do thật nhỏ để mỉm cười an nhiên.',
+      'Chúc Jian luôn khỏe mạnh, an yên và có thật nhiều thời gian yêu chiều bản thân.',
+      'Chúc cô gái tuyệt vời mang tên Jian luôn tỏa sáng với nét duyên dáng và dịu dàng nhất.',
+      'Mong Jian luôn có đủ can đảm để đón nhận điều mới và luôn được chở che, nâng niu.',
+      'Chúc Jian ngày 20/10 nhận được thật nhiều hoa, quà và những lời chúc ngọt ngào nhất!',
+      'Dù bận rộn đến đâu, mong Jian luôn giữ được sự an nhiên và nụ cười trên môi nhé.',
+      'Gửi Jian muôn ngàn đóa hoa tulip xinh đẹp cùng những điều may mắn, tốt lành nhất.'
+    ];
+
+    /* =========================================================================
+       3. CELESTIAL MUSIC-BOX SOUND SYNTHESIZER (WEB AUDIO API)
+       ========================================================================= */
+    let audioCtx = null;
+    function playTulipChime(seed = 0) {
+      try {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) audioCtx = new AudioContext();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        if (!audioCtx) return;
+
+        // Warm pentatonic scale: F#4, G#4, A#4, C#5, D#5, F#5, G#5
+        const scale = [369.99, 415.30, 466.16, 554.37, 622.25, 739.99, 830.61];
+        const baseFreq = scale[Math.abs(seed) % scale.length];
+        const now = audioCtx.currentTime;
+
+        const osc = audioCtx.createOscillator();
+        const oscHarmonic = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(baseFreq, now);
+
+        oscHarmonic.type = 'triangle';
+        oscHarmonic.frequency.setValueAtTime(baseFreq * 2.01, now);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.linearRampToValueAtTime(0.16, now + 0.025);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.25);
+
+        osc.connect(gain);
+        oscHarmonic.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now);
+        oscHarmonic.start(now);
+        osc.stop(now + 1.3);
+        oscHarmonic.stop(now + 1.3);
+      } catch (e) {
+        // Audio is an enhancement; fails silently if blocked
+      }
+    }
+
+    /* =========================================================================
+       4. BOTANICAL TULIP SPRITE GENERATION (HIGH-DPI OFFSCREEN CANVASES)
+       ========================================================================= */
+    function createRealisticTulipSprite(config) {
+      const {
+        radius = 56,
+        paletteKey = 'angeliqueBlush',
+        variety = 'classic', // 'classic' | 'open' | 'double' | 'bud'
+        tiltX = 0,
+        tiltY = 0,
+        seed = 101,
+        hasDewdrop = false
+      } = config;
+
+      const dpr = Math.min(window.devicePixelRatio || 2, 2.2);
+      const pad = radius * 0.75;
+      const logicalW = (radius + pad) * 2;
+      const logicalH = (radius * 1.35 + pad) * 2;
+
+      function createLayerCanvas() {
+        const c = document.createElement('canvas');
+        c.width = Math.ceil(logicalW * dpr);
+        c.height = Math.ceil(logicalH * dpr);
+        const lCtx = c.getContext('2d');
+        lCtx.scale(dpr, dpr);
+        return { canvas: c, ctx: lCtx };
+      }
+
+      // Base Layer: Ambient occlusion drop shadow + jade receptacle
+      const baseLayer = createLayerCanvas();
+      // Whorl Layers:
+      // 0 = Back interior cup & stamens
+      // 1 = Left outer chalice tepal
+      // 2 = Right outer chalice tepal
+      // 3 = Front center hero tepal & dewdrop highlights
+      const whorlLayers = [
+        createLayerCanvas(),
+        createLayerCanvas(),
+        createLayerCanvas(),
+        createLayerCanvas()
+      ];
+
+      const cx = logicalW / 2;
+      const cy = logicalH * 0.58;
+      const rand = createSeededRandom(seed);
+      const pal = TULIP_PALETTES[paletteKey] || TULIP_PALETTES.angeliqueBlush;
+
+      // 4A. Ambient Drop Shadow underneath the bloom
+      const bCtx0 = baseLayer.ctx;
+      bCtx0.save();
+      const shadowGrad = bCtx0.createRadialGradient(
+        cx + tiltX * 8, cy + radius * 0.35 + tiltY * 6, radius * 0.2,
+        cx, cy + radius * 0.35, radius * 1.3
+      );
+      shadowGrad.addColorStop(0, 'rgba(52, 16, 28, 0.34)');
+      shadowGrad.addColorStop(0.6, 'rgba(52, 16, 28, 0.12)');
+      shadowGrad.addColorStop(1, 'rgba(52, 16, 28, 0)');
+      bCtx0.fillStyle = shadowGrad;
+      bCtx0.beginPath();
+      bCtx0.arc(cx, cy + radius * 0.35, radius * 1.3, 0, Math.PI * 2);
+      bCtx0.fill();
+
+      // Rounded Jade Green Calyx Receptacle & Stem stub
+      bCtx0.save();
+      bCtx0.translate(cx, cy + radius * 0.38);
+      // Stem stub
+      bCtx0.beginPath();
+      bCtx0.moveTo(-radius * 0.08, 0);
+      bCtx0.quadraticCurveTo(-radius * 0.07, radius * 0.35, -radius * 0.06, radius * 0.55);
+      bCtx0.lineTo(radius * 0.06, radius * 0.55);
+      bCtx0.quadraticCurveTo(radius * 0.07, radius * 0.35, radius * 0.08, 0);
+      bCtx0.closePath();
+      const stemGrad = bCtx0.createLinearGradient(-radius * 0.1, 0, radius * 0.1, 0);
+      stemGrad.addColorStop(0, '#3e6344');
+      stemGrad.addColorStop(0.5, '#5a8562');
+      stemGrad.addColorStop(1, '#81ac89');
+      bCtx0.fillStyle = stemGrad;
+      bCtx0.fill();
+
+      // Rounded bulbous receptacle
+      const receptGrad = bCtx0.createRadialGradient(0, -2, radius * 0.02, 0, 0, radius * 0.16);
+      receptGrad.addColorStop(0, '#9cc7a4');
+      receptGrad.addColorStop(0.65, '#5a8562');
+      receptGrad.addColorStop(1, '#3a5d40');
+      bCtx0.fillStyle = receptGrad;
+      bCtx0.beginPath();
+      bCtx0.ellipse(0, 0, radius * 0.16, radius * 0.11, 0, 0, Math.PI * 2);
+      bCtx0.fill();
+      bCtx0.restore();
+      bCtx0.restore();
+
+      // 4B. HELPER: Draw a single tulip tepal onto target context
+      function drawSingleTepal(ctx, ox, oy, tepalW, tepalH, angle, flareFactor, curl, isInner = false) {
+        ctx.save();
+        ctx.translate(ox, oy);
+        ctx.rotate(angle);
+
+        const bw = tepalW * 0.22;
+        const mw = tepalW * 0.52 * (1 + flareFactor * 0.14);
+        const th = tepalH * (1 + curl * 0.05);
+
+        ctx.beginPath();
+        ctx.moveTo(-bw * 0.5, 0);
+
+        // Left belly curve
+        ctx.bezierCurveTo(
+          -mw * 0.75, -th * 0.26,
+          -mw * 1.05, -th * 0.58,
+          -mw * 0.88, -th * 0.80
+        );
+        // Left shoulder to apex
+        ctx.bezierCurveTo(
+          -mw * 0.70, -th * 0.94,
+          -bw * 0.55, -th * 1.01,
+          0, -th * 1.02
+        );
+        // Apex to right shoulder
+        ctx.bezierCurveTo(
+          bw * 0.55, -th * 1.01,
+          mw * 0.70, -th * 0.94,
+          mw * 0.88, -th * 0.80
+        );
+        // Right belly to base
+        ctx.bezierCurveTo(
+          mw * 1.05, -th * 0.58,
+          mw * 0.75, -th * 0.26,
+          bw * 0.5, 0
+        );
+        ctx.closePath();
+
+        // Shadow
+        ctx.shadowColor = pal.creviceShadow;
+        ctx.shadowBlur = Math.max(3, tepalW * 0.12);
+        ctx.shadowOffsetY = 2.5;
+
+        // Longitudinal porcelain gradient
+        const grad = ctx.createLinearGradient(0, 0, 0, -th);
+        if (isInner) {
+          grad.addColorStop(0, pal.deepCore);
+          grad.addColorStop(0.32, pal.innerShadow);
+          grad.addColorStop(0.72, pal.midBelly);
+          grad.addColorStop(1, pal.outerBlush);
+        } else {
+          grad.addColorStop(0, pal.baseTone);
+          grad.addColorStop(0.18, pal.deepCore);
+          grad.addColorStop(0.52, pal.midBelly);
+          grad.addColorStop(0.88, pal.outerBlush);
+          grad.addColorStop(1, pal.lipHighlight);
+        }
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        ctx.shadowColor = 'transparent';
+
+        // Silky subtle longitudinal veins
+        ctx.save();
+        ctx.clip();
+        ctx.strokeStyle = rgbaStr(isInner ? pal.innerShadow : pal.midBelly, 0.24);
+        ctx.lineWidth = 0.9;
+        [-0.32, -0.16, 0, 0.16, 0.32].forEach(offset => {
+          ctx.beginPath();
+          ctx.moveTo(offset * bw, 0);
+          ctx.quadraticCurveTo(offset * mw * 1.15, -th * 0.55, offset * bw * 0.4, -th * 0.98);
+          ctx.stroke();
+        });
+
+        // Soft longitudinal specular spine highlight
+        const spineGrad = ctx.createLinearGradient(-mw * 0.35, 0, mw * 0.35, 0);
+        spineGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+        spineGrad.addColorStop(0.5, isInner ? 'rgba(255, 255, 255, 0.14)' : 'rgba(255, 255, 255, 0.28)');
+        spineGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = spineGrad;
+        ctx.fillRect(-mw, -th * 1.05, mw * 2, th * 1.1);
+        ctx.restore();
+
+        // Delicate luminous lip stroke
+        ctx.beginPath();
+        ctx.moveTo(-mw * 0.72, -th * 0.88);
+        ctx.bezierCurveTo(-mw * 0.48, -th * 1.0, -bw * 0.4, -th * 1.02, 0, -th * 1.02);
+        ctx.bezierCurveTo(bw * 0.4, -th * 1.02, mw * 0.48, -th * 1.0, mw * 0.72, -th * 0.88);
+        ctx.strokeStyle = rgbaStr(pal.lipHighlight, 0.85);
+        ctx.lineWidth = 1.3;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      // 4C. LAYER 0: Interior Chalice & Stamens
+      const ctx0 = whorlLayers[0].ctx;
+      const bH = radius * 1.35;
+      const bW = radius * 1.25;
+
+      // 3 Inner/Back Tepals (visible when tulip opens)
+      drawSingleTepal(ctx0, cx - bW * 0.24, cy + radius * 0.32, bW * 0.92, bH * 1.02, -0.16, 0.1, -0.02, true);
+      drawSingleTepal(ctx0, cx + bW * 0.24, cy + radius * 0.32, bW * 0.92, bH * 1.02, 0.16, 0.1, 0.02, true);
+      drawSingleTepal(ctx0, cx, cy + radius * 0.33, bW * 0.96, bH * 1.06, 0.0, 0.05, 0.0, true);
+
+      // Velvet Chalice Throat Shading
+      const throatGrad = ctx0.createRadialGradient(cx, cy + radius * 0.08, 2, cx, cy + radius * 0.08, radius * 0.45);
+      throatGrad.addColorStop(0, pal.throatTone);
+      throatGrad.addColorStop(0.65, rgbaStr(pal.deepCore, 0.75));
+      throatGrad.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx0.fillStyle = throatGrad;
+      ctx0.beginPath();
+      ctx0.ellipse(cx, cy + radius * 0.08, radius * 0.42, radius * 0.28, 0, 0, Math.PI * 2);
+      ctx0.fill();
+
+      // Central Pale Green Stigma & Ovary
+      ctx0.save();
+      ctx0.translate(cx, cy + radius * 0.04);
+      ctx0.beginPath();
+      ctx0.ellipse(0, 4, 4.8, 10, 0, 0, Math.PI * 2);
+      ctx0.fillStyle = '#7ca882';
+      ctx0.fill();
+      for (let lb = 0; lb < 3; lb++) {
+        const lbAngle = (lb / 3) * Math.PI * 2 - Math.PI / 2;
+        ctx0.beginPath();
+        ctx0.arc(Math.cos(lbAngle) * 3.8, -7 + Math.sin(lbAngle) * 3, 3, 0, Math.PI * 2);
+        ctx0.fillStyle = '#a1d1a8';
+        ctx0.fill();
+      }
+      ctx0.restore();
+
+      // 6 Stamens with Velvety Golden Anthers
+      for (let st = 0; st < 6; st++) {
+        const stAngle = (st / 6) * Math.PI * 2;
+        const filamentLen = radius * (0.34 + rand() * 0.06);
+        const fx = cx + Math.cos(stAngle) * radius * 0.22;
+        const fy = cy + radius * 0.08 + Math.sin(stAngle) * radius * 0.12;
+        const topX = cx + Math.cos(stAngle) * (radius * 0.32);
+        const topY = fy - filamentLen;
+
+        ctx0.beginPath();
+        ctx0.moveTo(fx, fy);
+        ctx0.quadraticCurveTo((fx + topX) * 0.5 + (rand() - 0.5) * 3, (fy + topY) * 0.5, topX, topY);
+        ctx0.strokeStyle = '#dbe8d8';
+        ctx0.lineWidth = 1.3;
+        ctx0.stroke();
+
+        ctx0.save();
+        ctx0.translate(topX, topY);
+        ctx0.rotate(stAngle * 0.35 + (rand() - 0.5) * 0.25);
+        ctx0.beginPath();
+        ctx0.ellipse(0, 0, 3, 7.5, 0, 0, Math.PI * 2);
+        ctx0.fillStyle = pal.stamenColor;
+        ctx0.fill();
+        ctx0.beginPath();
+        ctx0.ellipse(0.7, -1, 2, 6, 0, 0, Math.PI * 2);
+        ctx0.fillStyle = pal.antherPollen;
+        ctx0.fill();
+        ctx0.restore();
+      }
+
+      // 4D. LAYER 1: Left Outer Chalice Tepal
+      const ctx1 = whorlLayers[1].ctx;
+      drawSingleTepal(ctx1, cx, cy + radius * 0.36, bW * 0.98, bH * 1.04, -0.18, 0.08, -0.03, false);
+
+      // 4E. LAYER 2: Right Outer Chalice Tepal
+      const ctx2 = whorlLayers[2].ctx;
+      drawSingleTepal(ctx2, cx, cy + radius * 0.36, bW * 0.98, bH * 1.04, 0.18, 0.08, 0.03, false);
+
+      // 4F. LAYER 3: Front Center Hero Tepal & Dewdrops
+      const ctx3 = whorlLayers[3].ctx;
+      // If double / peony variety, add an extra ruffled middle petal
+      if (variety === 'double') {
+        drawSingleTepal(ctx3, cx - bW * 0.08, cy + radius * 0.35, bW * 0.88, bH * 0.98, -0.06, 0.12, 0.04, false);
+        drawSingleTepal(ctx3, cx + bW * 0.08, cy + radius * 0.35, bW * 0.88, bH * 0.98, 0.06, 0.12, -0.04, false);
+      }
+      drawSingleTepal(ctx3, cx, cy + radius * 0.38, bW * 1.05, bH * 1.02, 0.0, 0.02, 0.0, false);
+
+      // Sparkling Morning Dewdrops
+      if (hasDewdrop) {
+        const dropPositions = [
+          { x: cx - bW * 0.22, y: cy - bH * 0.25, r: radius * 0.065 },
+          { x: cx + bW * 0.18, y: cy - bH * 0.05, r: radius * 0.052 }
+        ];
+        dropPositions.forEach(dp => {
+          // Drop shadow
+          ctx3.save();
+          ctx3.beginPath();
+          ctx3.ellipse(dp.x + dp.r * 0.3, dp.y + dp.r * 0.4, dp.r * 0.9, dp.r * 0.7, 0.3, 0, Math.PI * 2);
+          ctx3.fillStyle = 'rgba(50, 15, 28, 0.32)';
+          ctx3.fill();
+
+          // Drop lens refraction
+          const dropGrad = ctx3.createRadialGradient(
+            dp.x - dp.r * 0.3, dp.y - dp.r * 0.3, dp.r * 0.1,
+            dp.x, dp.y, dp.r
+          );
+          dropGrad.addColorStop(0, 'rgba(255, 255, 255, 0.85)');
+          dropGrad.addColorStop(0.3, 'rgba(255, 240, 245, 0.45)');
+          dropGrad.addColorStop(0.8, 'rgba(180, 50, 80, 0.22)');
+          dropGrad.addColorStop(1, 'rgba(120, 20, 45, 0.42)');
+          ctx3.fillStyle = dropGrad;
+          ctx3.beginPath();
+          ctx3.arc(dp.x, dp.y, dp.r, 0, Math.PI * 2);
+          ctx3.fill();
+
+          // Caustic specular highlight glint
+          ctx3.beginPath();
+          ctx3.arc(dp.x - dp.r * 0.35, dp.y - dp.r * 0.35, dp.r * 0.28, 0, Math.PI * 2);
+          ctx3.fillStyle = '#ffffff';
+          ctx3.fill();
+          ctx3.restore();
+        });
+      }
+
+      return {
+        baseCanvas: baseLayer.canvas,
+        whorlCanvases: whorlLayers.map(l => l.canvas),
+        logicalW,
+        logicalH,
+        radius
+      };
+    }
+
+    /* =========================================================================
+       5. TULIP FOLIAGE, BABY'S BREATH & KOREAN LUXURY WRAPPING PAPER
+       ========================================================================= */
+    function drawTulipLeaf(ctx, x, y, angle, length, width, bend = 0.25) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(angle);
+
+      const halfW = width * 0.5;
+      const tipX = bend * 34;
+      const tipY = -length;
+
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      // Left contour to graceful arching tip
+      ctx.bezierCurveTo(
+        -halfW * 1.15, -length * 0.32,
+        -halfW * 0.9 + bend * 22, -length * 0.74,
+        tipX, tipY
+      );
+      // Right contour back to base
+      ctx.bezierCurveTo(
+        halfW * 0.85 + bend * 22, -length * 0.74,
+        halfW * 1.1, -length * 0.32,
+        0, 0
+      );
+      ctx.closePath();
+
+      // Waxy sage green two-tone gradient
+      const leafGrad = ctx.createLinearGradient(-halfW, 0, halfW, 0);
+      leafGrad.addColorStop(0, '#38593e');
+      leafGrad.addColorStop(0.48, '#4f7657');
+      leafGrad.addColorStop(0.52, '#699271');
+      leafGrad.addColorStop(1, '#8db795');
+
+      ctx.shadowColor = 'rgba(28, 48, 32, 0.18)';
+      ctx.shadowBlur = 8;
+      ctx.shadowOffsetY = 4;
+      ctx.fillStyle = leafGrad;
+      ctx.fill();
+
+      ctx.shadowColor = 'transparent';
+
+      // Elegant midrib spine crease
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.quadraticCurveTo(bend * 16, -length * 0.55, tipX, tipY);
+      ctx.strokeStyle = 'rgba(220, 245, 225, 0.42)';
+      ctx.lineWidth = 1.3;
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function createBabyBreathClusterSprite(seed = 1) {
+      const dpr = Math.min(window.devicePixelRatio || 2, 2.2);
+      const size = 135;
+      const c = document.createElement('canvas');
+      c.width = Math.ceil(size * dpr);
+      c.height = Math.ceil(size * dpr);
+      const ctx = c.getContext('2d');
+      ctx.scale(dpr, dpr);
+
+      const rand = createSeededRandom(seed);
+      const cx = size * 0.5;
+      const cy = size * 0.82;
+
+      ctx.save();
+      ctx.strokeStyle = '#5f8863';
+      ctx.lineWidth = 1.1;
+      ctx.lineCap = 'round';
+
+      const blossomPoints = [];
+      function branch(x, y, len, angle, depth) {
+        if (depth > 3) {
+          blossomPoints.push({ x, y, r: 2.6 + rand() * 1.5 });
+          return;
+        }
+        const nx = x + Math.cos(angle) * len;
+        const ny = y + Math.sin(angle) * len;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(nx, ny);
+        ctx.stroke();
+
+        const forks = 2 + (rand() > 0.6 ? 1 : 0);
+        for (let i = 0; i < forks; i++) {
+          const spread = (i - (forks - 1) / 2) * 0.48 + (rand() - 0.5) * 0.25;
+          branch(nx, ny, len * (0.68 + rand() * 0.15), angle + spread, depth + 1);
+        }
+      }
+
+      branch(cx, cy, 32, -Math.PI / 2, 0);
+
+      // Starry little white petals
+      blossomPoints.forEach(pt => {
+        ctx.save();
+        ctx.translate(pt.x, pt.y);
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = 'rgba(255, 235, 240, 0.8)';
+        ctx.shadowBlur = 4;
+        for (let p = 0; p < 5; p++) {
+          const a = (p / 5) * Math.PI * 2;
+          ctx.beginPath();
+          ctx.arc(Math.cos(a) * pt.r * 0.85, Math.sin(a) * pt.r * 0.85, pt.r * 0.65, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        // Pale golden center pistil
+        ctx.shadowColor = 'transparent';
+        ctx.beginPath();
+        ctx.arc(0, 0, pt.r * 0.38, 0, Math.PI * 2);
+        ctx.fillStyle = '#edd268';
+        ctx.fill();
+        ctx.restore();
+      });
+
+      ctx.restore();
+      return { canvas: c, size };
+    }
+
+    function drawWrappingPaperBack(ctx, cx, cy, scale) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.scale(scale, scale);
+
+      ctx.shadowColor = 'rgba(92, 35, 52, 0.15)';
+      ctx.shadowBlur = 28;
+      ctx.shadowOffsetY = 12;
+
+      // Soft back wrapping fan
+      ctx.beginPath();
+      ctx.moveTo(-215, -120);
+      ctx.bezierCurveTo(-260, -30, -220, 80, -75, 175);
+      ctx.bezierCurveTo(0, 185, 0, 185, 75, 175);
+      ctx.bezierCurveTo(220, 80, 260, -30, 215, -120);
+      ctx.bezierCurveTo(120, -170, -120, -170, -215, -120);
+      ctx.closePath();
+
+      const backGrad = ctx.createLinearGradient(0, -160, 0, 180);
+      backGrad.addColorStop(0, '#f9e6ed');
+      backGrad.addColorStop(0.4, '#f5d6e2');
+      backGrad.addColorStop(1, '#eec3d2');
+      ctx.fillStyle = backGrad;
+      ctx.fill();
+
+      // Inner soft tissue fold
+      ctx.beginPath();
+      ctx.moveTo(-185, -95);
+      ctx.bezierCurveTo(-215, -15, -170, 75, -55, 155);
+      ctx.lineTo(55, 155);
+      ctx.bezierCurveTo(170, 75, 215, -15, 185, -95);
+      ctx.bezierCurveTo(90, -135, -90, -135, -185, -95);
+      ctx.closePath();
+      const tissueGrad = ctx.createLinearGradient(0, -120, 0, 160);
+      tissueGrad.addColorStop(0, '#fffbfd');
+      tissueGrad.addColorStop(0.5, '#fdf0f4');
+      tissueGrad.addColorStop(1, '#fae1e9');
+      ctx.fillStyle = tissueGrad;
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function drawWrappingPaperFrontAndRibbon(ctx, cx, cy, scale, time) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.scale(scale, scale);
+
+      const waistY = 150;
+
+      // 1. Fresh green tulip stems peeking out beneath wrapping paper
+      const stemOffsets = [-22, -12, -2, 8, 18, 28];
+      stemOffsets.forEach((ox, idx) => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(ox * 0.4, waistY + 40);
+        ctx.quadraticCurveTo(ox * 0.8, waistY + 98, ox * 1.35, waistY + 152 + (idx % 2) * 8);
+        ctx.strokeStyle = idx % 2 === 0 ? '#43684a' : '#57825f';
+        ctx.lineWidth = 6;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      // 2. Lower Paper Skirt
+      ctx.save();
+      ctx.shadowColor = 'rgba(92, 35, 52, 0.16)';
+      ctx.shadowBlur = 18;
+      ctx.shadowOffsetY = 8;
+      ctx.beginPath();
+      ctx.moveTo(-48, waistY - 6);
+      ctx.bezierCurveTo(-82, waistY + 46, -112, waistY + 98, -88, waistY + 135);
+      ctx.bezierCurveTo(-40, waistY + 144, 40, waistY + 144, 88, waistY + 135);
+      ctx.bezierCurveTo(112, waistY + 98, 82, waistY + 46, 48, waistY - 6);
+      ctx.closePath();
+      const skirtGrad = ctx.createLinearGradient(0, waistY, 0, waistY + 140);
+      skirtGrad.addColorStop(0, '#ebc5d0');
+      skirtGrad.addColorStop(0.45, '#f7dfe6');
+      skirtGrad.addColorStop(1, '#fff9fb');
+      ctx.fillStyle = skirtGrad;
+      ctx.fill();
+      ctx.restore();
+
+      // 3. Left Front Embracing Paper Fold
+      ctx.save();
+      ctx.shadowColor = 'rgba(95, 38, 56, 0.16)';
+      ctx.shadowBlur = 16;
+      ctx.shadowOffsetY = 4;
+      ctx.beginPath();
+      ctx.moveTo(-200, -18);
+      ctx.bezierCurveTo(-220, 56, -138, 120, -42, waistY + 2);
+      ctx.bezierCurveTo(-65, waistY + 54, -78, waistY + 100, -55, waistY + 126);
+      ctx.bezierCurveTo(-15, waistY + 130, 12, waistY + 116, 22, waistY + 98);
+      ctx.bezierCurveTo(15, waistY + 48, 8, waistY + 12, 18, waistY - 8);
+      ctx.bezierCurveTo(-45, 92, -125, 62, -200, -18);
+      ctx.closePath();
+      const leftFoldGrad = ctx.createLinearGradient(-200, 0, 30, waistY + 110);
+      leftFoldGrad.addColorStop(0, '#fffdfb');
+      leftFoldGrad.addColorStop(0.5, '#fcebef');
+      leftFoldGrad.addColorStop(1, '#f2ced7');
+      ctx.fillStyle = leftFoldGrad;
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(215, 160, 175, 0.65)';
+      ctx.lineWidth = 1.3;
+      ctx.stroke();
+      ctx.restore();
+
+      // 4. Right Front Embracing Paper Fold (Overlap)
+      ctx.save();
+      ctx.shadowColor = 'rgba(92, 35, 52, 0.18)';
+      ctx.shadowBlur = 16;
+      ctx.shadowOffsetX = -3;
+      ctx.shadowOffsetY = 5;
+      ctx.beginPath();
+      ctx.moveTo(200, -18);
+      ctx.bezierCurveTo(220, 56, 138, 120, 42, waistY + 2);
+      ctx.bezierCurveTo(68, waistY + 56, 84, waistY + 102, 58, waistY + 128);
+      ctx.bezierCurveTo(10, waistY + 136, -24, waistY + 120, -34, waistY + 102);
+      ctx.bezierCurveTo(-18, waistY + 50, -12, waistY + 12, -22, waistY - 12);
+      ctx.bezierCurveTo(45, 88, 128, 60, 200, -18);
+      ctx.closePath();
+      const rightFoldGrad = ctx.createLinearGradient(200, 0, -40, waistY + 120);
+      rightFoldGrad.addColorStop(0, '#fff9fb');
+      rightFoldGrad.addColorStop(0.45, '#f9e0e6');
+      rightFoldGrad.addColorStop(1, '#efc2ce');
+      ctx.fillStyle = rightFoldGrad;
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(215, 155, 172, 0.72)';
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+      ctx.restore();
+
+      // 5. Luxury Satin Ribbon Waist Band & Flowing Tails
+      const breeze = Math.sin(time * 1.8) * 6;
+      const breeze2 = Math.cos(time * 1.4) * 5;
+
+      ctx.save();
+      ctx.translate(0, waistY + 4);
+
+      ctx.shadowColor = 'rgba(110, 25, 48, 0.28)';
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetY = 4;
+
+      const ribbonBandGrad = ctx.createLinearGradient(-48, 0, 48, 0);
+      ribbonBandGrad.addColorStop(0, '#b5385a');
+      ribbonBandGrad.addColorStop(0.3, '#e26d8d');
+      ribbonBandGrad.addColorStop(0.5, '#f79bb4');
+      ribbonBandGrad.addColorStop(0.75, '#d95b7d');
+      ribbonBandGrad.addColorStop(1, '#a82e50');
+
+      ctx.fillStyle = ribbonBandGrad;
+      ctx.beginPath();
+      ctx.roundRect(-46, -11, 92, 22, 8);
+      ctx.fill();
+
+      // Flowing Tails
+      ctx.beginPath();
+      ctx.moveTo(-10, 8);
+      ctx.bezierCurveTo(-38, 45, -68 + breeze, 92, -52 + breeze * 1.3, 144);
+      ctx.lineTo(-34 + breeze * 1.3, 136);
+      ctx.bezierCurveTo(-46 + breeze, 88, -20, 44, 4, 8);
+      ctx.closePath();
+      const tailGradL = ctx.createLinearGradient(-10, 8, -50, 140);
+      tailGradL.addColorStop(0, '#ba3b5e');
+      tailGradL.addColorStop(0.45, '#e87a98');
+      tailGradL.addColorStop(1, '#c94a6d');
+      ctx.fillStyle = tailGradL;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(10, 8);
+      ctx.bezierCurveTo(40, 48, 72 + breeze2, 95, 58 + breeze2 * 1.3, 148);
+      ctx.lineTo(38 + breeze2 * 1.3, 140);
+      ctx.bezierCurveTo(50 + breeze2, 92, 22, 46, -4, 8);
+      ctx.closePath();
+      const tailGradR = ctx.createLinearGradient(10, 8, 55, 145);
+      tailGradR.addColorStop(0, '#b8395b');
+      tailGradR.addColorStop(0.5, '#ec829f');
+      tailGradR.addColorStop(1, '#c44568');
+      ctx.fillStyle = tailGradR;
+      ctx.fill();
+
+      // Ribbon Loops
+      ctx.beginPath();
+      ctx.moveTo(-6, -2);
+      ctx.bezierCurveTo(-55, -36, -92, -12, -78, 14);
+      ctx.bezierCurveTo(-65, 34, -28, 18, -4, 4);
+      ctx.closePath();
+      const loopGradL = ctx.createLinearGradient(-85, -15, -5, 10);
+      loopGradL.addColorStop(0, '#c44568');
+      loopGradL.addColorStop(0.45, '#f6a2b8');
+      loopGradL.addColorStop(1, '#a82e50');
+      ctx.fillStyle = loopGradL;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(6, -2);
+      ctx.bezierCurveTo(55, -36, 92, -12, 78, 14);
+      ctx.bezierCurveTo(65, 34, 28, 18, 4, 4);
+      ctx.closePath();
+      const loopGradR = ctx.createLinearGradient(85, -15, 5, 10);
+      loopGradR.addColorStop(0, '#c44568');
+      loopGradR.addColorStop(0.45, '#f6a2b8');
+      loopGradR.addColorStop(1, '#a82e50');
+      ctx.fillStyle = loopGradR;
+      ctx.fill();
+
+      // Ribbon Center Knot
+      const knotGrad = ctx.createRadialGradient(-3, -3, 2, 0, 0, 16);
+      knotGrad.addColorStop(0, '#fadce4');
+      knotGrad.addColorStop(0.45, '#e46c8c');
+      knotGrad.addColorStop(1, '#9e2445');
+      ctx.fillStyle = knotGrad;
+      ctx.beginPath();
+      ctx.roundRect(-13, -12, 26, 24, 9);
+      ctx.fill();
+
+      // 6. Cute Swinging Florist Keepsake Tag ("20 • 10 • Jian ♡")
+      const tagAngle = Math.sin(time * 2.1) * 0.08 + 0.12;
+      ctx.save();
+      ctx.rotate(tagAngle);
+
+      // Gold cord
+      ctx.beginPath();
+      ctx.moveTo(4, 10);
+      ctx.lineTo(18, 35);
+      ctx.strokeStyle = '#d4af37';
+      ctx.lineWidth = 1.3;
+      ctx.stroke();
+
+      // Tag Card
+      ctx.translate(18, 35);
+      ctx.fillStyle = '#fffdfb';
+      ctx.strokeStyle = '#e2b8c4';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(-26, 0, 52, 28, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#b83b5e';
+      ctx.font = 'italic 600 9.5px "Plus Jakarta Sans", Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('20 • 10 • Jian ♡', 0, 17);
+      ctx.restore();
+
+      ctx.restore(); // end waist
+      ctx.restore(); // end scale/translate
+    }
+
+    /* =========================================================================
+       6. BOUQUET ARRANGEMENT (22 TULIPS, BROAD FOLIAGE & BABY'S BREATH)
+       ========================================================================= */
+    const BOUQUET_LAYOUT = [
+      // TIER 1: Upper Halo & Arching Outer Tulips (Back layer)
+      { x: -130, y: -160, r: 46, paletteKey: 'apricotSunset', variety: 'classic', tiltX: -0.34, tiltY: -0.32, z: 1, seed: 11 },
+      { x: -66,  y: -196, r: 48, paletteKey: 'angeliqueBlush', variety: 'open',    tiltX: -0.16, tiltY: -0.40, z: 1, seed: 12 },
+      { x: 0,    y: -210, r: 50, paletteKey: 'creamyPearl',    variety: 'classic', tiltX: 0.0,   tiltY: -0.42, z: 1, seed: 13 },
+      { x: 68,   y: -194, r: 48, paletteKey: 'sunnyCanary',    variety: 'open',    tiltX: 0.18,  tiltY: -0.38, z: 1, seed: 14 },
+      { x: 132,  y: -156, r: 46, paletteKey: 'lavenderLilac',  variety: 'classic', tiltX: 0.35,  tiltY: -0.30, z: 1, seed: 15 },
+      { x: -168, y: -90,  r: 44, paletteKey: 'royalCrimson',   variety: 'bud',     tiltX: -0.42, tiltY: -0.14, z: 1, seed: 16 },
+      { x: 170,  y: -86,  r: 44, paletteKey: 'angeliqueBlush', variety: 'bud',     tiltX: 0.42,  tiltY: -0.14, z: 1, seed: 17 },
+
+      // TIER 2: Mid-Dome Volume Tulips
+      { x: -112, y: -105, r: 54, paletteKey: 'creamyPearl',    variety: 'open',    tiltX: -0.24, tiltY: -0.20, z: 2, seed: 21, hasDewdrop: true },
+      { x: -36,  y: -134, r: 56, paletteKey: 'royalCrimson',   variety: 'double',  tiltX: -0.08, tiltY: -0.22, z: 2, seed: 22 },
+      { x: 42,   y: -130, r: 56, paletteKey: 'apricotSunset',  variety: 'open',    tiltX: 0.10,  tiltY: -0.22, z: 2, seed: 23, hasDewdrop: true },
+      { x: 114,  y: -102, r: 54, paletteKey: 'angeliqueBlush', variety: 'classic', tiltX: 0.25,  tiltY: -0.18, z: 2, seed: 24 },
+      { x: -144, y: -26,  r: 52, paletteKey: 'lavenderLilac',  variety: 'classic', tiltX: -0.32, tiltY: 0.04,  z: 2, seed: 25 },
+      { x: 146,  y: -22,  r: 52, paletteKey: 'sunnyCanary',    variety: 'open',    tiltX: 0.32,  tiltY: 0.04,  z: 2, seed: 26 },
+      { x: -115, y: 44,   r: 50, paletteKey: 'apricotSunset',  variety: 'classic', tiltX: -0.25, tiltY: 0.22,  z: 2, seed: 27 },
+      { x: 118,  y: 46,   r: 50, paletteKey: 'royalCrimson',   variety: 'classic', tiltX: 0.25,  tiltY: 0.22,  z: 2, seed: 28 },
+
+      // TIER 3: Grand Hero Tulips
+      { x: -74,  y: -52,  r: 62, paletteKey: 'angeliqueBlush', variety: 'double',  tiltX: -0.12, tiltY: -0.06, z: 3, seed: 31, hasDewdrop: true },
+      { x: 74,   y: -48,  r: 60, paletteKey: 'creamyPearl',    variety: 'open',    tiltX: 0.14,  tiltY: -0.06, z: 3, seed: 32, hasDewdrop: true },
+      { x: -55,  y: 30,   r: 58, paletteKey: 'sunnyCanary',    variety: 'open',    tiltX: -0.10, tiltY: 0.15,  z: 3, seed: 33, hasDewdrop: true },
+      { x: 58,   y: 32,   r: 58, paletteKey: 'lavenderLilac',  variety: 'double',  tiltX: 0.10,  tiltY: 0.15,  z: 3, seed: 34, hasDewdrop: true },
+      { x: 0,    y: 52,   r: 56, paletteKey: 'apricotSunset',  variety: 'classic', tiltX: 0.0,   tiltY: 0.20,  z: 3, seed: 35 },
+
+      // TIER 4: Crown Centerpieces
+      { x: 0,    y: -72,  r: 65, paletteKey: 'royalCrimson',   variety: 'double',  tiltX: 0.0,   tiltY: -0.10, z: 4, seed: 41, hasDewdrop: true },
+      { x: -2,   y: -6,   r: 68, paletteKey: 'angeliqueBlush', variety: 'open',    tiltX: 0.0,   tiltY: 0.02,  z: 4, seed: 42, hasDewdrop: true }
+    ];
+
+    const FOLIAGE_LAYOUT = [
+      // Arching back tulip leaves framing the dome
+      { x: -145, y: -145, angle: -2.35, len: 105, w: 32, bend: -0.3, layer: 'back' },
+      { x: -85,  y: -188, angle: -1.85, len: 115, w: 34, bend: -0.15, layer: 'back' },
+      { x: -10,  y: -208, angle: -1.55, len: 120, w: 36, bend: 0.05, layer: 'back' },
+      { x: 75,   y: -188, angle: -1.25, len: 114, w: 34, bend: 0.2, layer: 'back' },
+      { x: 145,  y: -142, angle: -0.75, len: 105, w: 32, bend: 0.35, layer: 'back' },
+      { x: -175, y: -65,  angle: -2.75, len: 100, w: 30, bend: -0.35, layer: 'back' },
+      { x: 175,  y: -60,  angle: -0.35, len: 100, w: 30, bend: 0.35, layer: 'back' },
+
+      // Foreground cascading leaves over wrapping paper
+      { x: -140, y: 48,   angle: 2.50,  len: 86,  w: 28, bend: -0.25, layer: 'front' },
+      { x: -85,  y: 75,   angle: 2.12,  len: 92,  w: 30, bend: -0.15, layer: 'front' },
+      { x: -28,  y: 85,   angle: 1.76,  len: 85,  w: 28, bend: -0.05, layer: 'front' },
+      { x: 32,   y: 85,   angle: 1.35,  len: 85,  w: 28, bend: 0.05, layer: 'front' },
+      { x: 88,   y: 72,   angle: 0.95,  len: 92,  w: 30, bend: 0.2, layer: 'front' },
+      { x: 142,  y: 45,   angle: 0.55,  len: 86,  w: 28, bend: 0.3, layer: 'front' }
+    ];
+
+    const BABY_BREATH_LAYOUT = [
+      { x: -155, y: -140, angle: -0.65, scale: 0.94, layer: 'back', seed: 101 },
+      { x: -35,  y: -205, angle: -0.12, scale: 0.96, layer: 'back', seed: 102 },
+      { x: 48,   y: -202, angle: 0.18,  scale: 0.94, layer: 'back', seed: 103 },
+      { x: 160,  y: -135, angle: 0.68,  scale: 0.92, layer: 'back', seed: 104 },
+      { x: -185, y: -40,  angle: -1.05, scale: 0.88, layer: 'back', seed: 105 },
+      { x: 188,  y: -36,  angle: 1.05,  scale: 0.88, layer: 'back', seed: 106 },
+
+      { x: -100, y: -80,  angle: -0.45, scale: 0.74, layer: 'front', seed: 201 },
+      { x: 102,  y: -76,  angle: 0.45,  scale: 0.74, layer: 'front', seed: 202 },
+      { x: -124, y: 20,   angle: -0.85, scale: 0.80, layer: 'front', seed: 203 },
+      { x: 126,  y: 24,   angle: 0.85,  scale: 0.80, layer: 'front', seed: 204 },
+      { x: -44,  y: 70,   angle: -0.25, scale: 0.76, layer: 'front', seed: 205 },
+      { x: 46,   y: 70,   angle: 0.25,  scale: 0.76, layer: 'front', seed: 206 }
+    ];
+
+    /* =========================================================================
+       7. CANVAS & SCENE INITIALIZATION
+       ========================================================================= */
+    const bouquetCanvas = document.getElementById('bouquetCanvas');
+    const bCtx = bouquetCanvas.getContext('2d');
+    const bouquetWrapper = document.getElementById('bouquetStageWrapper');
+    const ambientCanvas = document.getElementById('ambientPetalsCanvas');
+    const aCtx = ambientCanvas.getContext('2d');
+
+    const tulipNodes = [];
+    const babySprites = [];
+    let pointerX = -9999;
+    let pointerY = -9999;
+    let parallaxTargetX = 0;
+    let parallaxTargetY = 0;
+    let parallaxX = 0;
+    let parallaxY = 0;
+    let nextAutoShowcaseTime = performance.now() + 10000;
+    let stageW = 640;
+    let stageH = 640;
+    let winW = window.innerWidth;
+    let winH = window.innerHeight;
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let reducedMotion = motionPreference.matches;
+    let sceneAnimationFrame = null;
+    let keyboardTulipIndex = 0;
+    const bloomTimers = new Set();
+
+    function requestSceneRender() {
+      if (sceneAnimationFrame === null && !document.hidden) {
+        sceneAnimationFrame = requestAnimationFrame(renderBouquetScene);
+      }
+    }
+
+    function clearBloomTimers() {
+      bloomTimers.forEach(clearTimeout);
+      bloomTimers.clear();
+    }
+
+    function scheduleBloom(callback, delay) {
+      const timer = setTimeout(() => {
+        bloomTimers.delete(timer);
+        callback();
+      }, delay);
+      bloomTimers.add(timer);
+      return timer;
+    }
+
+    function settleBouquet() {
+      tulipNodes.forEach(tulip => {
+        tulip.bloom = tulip.targetBloom = 1.0;
+        tulip.vBloom = 0;
+        tulip.offsetX = tulip.offsetY = 0;
+        tulip.vx = tulip.vy = 0;
+        tulip.scaleOffset = 1.0;
+        tulip.vScale = 0;
+        tulip.flareGlow = 0;
+      });
+    }
+
+    function initBotanicalAssets() {
+      tulipNodes.length = 0;
+      babySprites.length = 0;
+
+      BOUQUET_LAYOUT.forEach((item, index) => {
+        const sprite = createRealisticTulipSprite(item);
+        tulipNodes.push({
+          ...item,
+          sprite,
+          bloom: reducedMotion ? 1.0 : 0.04,
+          targetBloom: 1.0,
+          vBloom: 0,
+          offsetX: 0,
+          offsetY: 0,
+          vx: 0,
+          vy: 0,
+          scaleOffset: reducedMotion ? 1.0 : 0.78,
+          vScale: 0,
+          flareGlow: 0,
+          spinDir: index % 2 === 0 ? 1 : -1,
+          whisper: WHISPER_NOTES[index % WHISPER_NOTES.length]
+        });
+      });
+
+      // Sort z-index so back tulips render first, front hero blooms render on top
+      tulipNodes.sort((a, b) => a.z - b.z);
+
+      BABY_BREATH_LAYOUT.forEach(item => {
+        babySprites.push({
+          ...item,
+          sprite: createBabyBreathClusterSprite(item.seed)
+        });
+      });
+    }
+
+    function triggerBouquetBloomWave(originX = 0, originY = -30, mode = 'grand') {
+      clearBloomTimers();
+      nextAutoShowcaseTime = performance.now() + 11000;
+      if (reducedMotion) {
+        settleBouquet();
+        requestSceneRender();
+        return;
+      }
+      tulipNodes.forEach(tulip => {
+        const distance = Math.hypot(tulip.x - originX, tulip.y - originY);
+        const delay = mode === 'grand' ? distance * 2.2 + (4 - tulip.z) * 65 : distance * 1.4;
+        if (mode === 'grand') {
+          tulip.bloom = tulip.targetBloom = 0.04;
+          tulip.vBloom = 0;
+          tulip.scaleOffset = 0.78;
+        } else {
+          scheduleBloom(() => {
+            tulip.targetBloom = 0.48;
+            tulip.vBloom = -0.06;
+          }, Math.max(0, delay - 110));
+        }
+
+        scheduleBloom(() => {
+          tulip.targetBloom = 1.08;
+          tulip.vBloom = 0.08;
+          tulip.vScale = 0.06;
+          tulip.flareGlow = 0.65;
+          scheduleBloom(() => {
+            tulip.targetBloom = 1.0;
+          }, 450);
+        }, delay);
+      });
+
+      // Announce ready after bloom wave finishes
+      scheduleBloom(() => {
+        document.dispatchEvent(new Event('bouquet:ready'));
+      }, 1200);
+
+      requestSceneRender();
+    }
+
+    function resizeCanvases() {
+      winW = window.innerWidth;
+      winH = window.innerHeight;
+      ambientCanvas.width = winW;
+      ambientCanvas.height = winH;
+
+      const rect = bouquetWrapper.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 2, 2.2);
+      stageW = Math.max(240, Math.floor(rect.width));
+      stageH = Math.max(240, Math.floor(rect.height));
+
+      bouquetCanvas.width = Math.floor(stageW * dpr);
+      bouquetCanvas.height = Math.floor(stageH * dpr);
+      bCtx.setTransform(1, 0, 0, 1, 0, 0);
+      bCtx.scale(dpr, dpr);
+
+      requestSceneRender();
+    }
+
+    /* =========================================================================
+       8. AMBIENT PETALS (FLOATING TULIP PETALS & BURST PARTICLES)
+       ========================================================================= */
+    const ambientPetals = [];
+    const PETAL_COUNT = 24;
+
+    function createPetalParticle(customX, customY, isBurst = false) {
+      const colors = ['#f8a2ba', '#f9bcd0', '#fbcad9', '#fddbe5', '#ffd5c6', '#fa9fb2', '#fee5ec'];
+      return {
+        x: customX !== undefined ? customX : Math.random() * winW,
+        y: customY !== undefined ? customY : (isBurst ? customY : Math.random() * winH),
+        vx: isBurst ? (Math.random() - 0.5) * 8.5 : (Math.random() - 0.45) * 1.5,
+        vy: isBurst ? (Math.random() - 0.65) * 7.5 : 1.2 + Math.random() * 1.6,
+        size: isBurst ? 9 + Math.random() * 9 : 11 + Math.random() * 12,
+        rot: Math.random() * Math.PI * 2,
+        vRot: (Math.random() - 0.5) * 0.045,
+        tilt: Math.random() * Math.PI,
+        vTilt: 0.02 + Math.random() * 0.03,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        opacity: isBurst ? 0.95 : 0.45 + Math.random() * 0.4,
+        isBurst,
+        life: isBurst ? 1.0 : 9999
+      };
+    }
+
+    function initAmbientPetals() {
+      ambientPetals.length = 0;
+      for (let i = 0; i < PETAL_COUNT; i++) {
+        ambientPetals.push(createPetalParticle());
+      }
+    }
+
+    function spawnPetalBurst(screenX, screenY, count = 10) {
+      for (let i = 0; i < count; i++) {
+        ambientPetals.push(createPetalParticle(screenX, screenY, true));
+      }
+      if (ambientPetals.length > 60) {
+        ambientPetals.splice(0, ambientPetals.length - 60);
+      }
+    }
+
+    function renderAmbientPetals(time) {
+      aCtx.clearRect(0, 0, winW, winH);
+
+      for (let i = ambientPetals.length - 1; i >= 0; i--) {
+        const p = ambientPetals[i];
+        p.x += p.vx + Math.sin(time * 1.6 + p.tilt) * 0.85;
+        p.y += p.vy;
+        p.rot += p.vRot;
+        p.tilt += p.vTilt;
+
+        if (p.isBurst) {
+          p.vx *= 0.94;
+          p.vy += 0.08;
+          p.life -= 0.018;
+          p.opacity = Math.max(0, p.life * 0.9);
+          if (p.life <= 0 || p.y > winH + 40) {
+            ambientPetals.splice(i, 1);
+            continue;
+          }
+        } else {
+          if (p.y > winH + 30) {
+            p.y = -30;
+            p.x = Math.random() * winW;
+          }
+        }
+
+        // Draw curved spoon-like tulip petal
+        aCtx.save();
+        aCtx.translate(p.x, p.y);
+        aCtx.rotate(p.rot);
+        aCtx.scale(Math.cos(p.tilt), 1);
+        aCtx.globalAlpha = p.opacity;
+
+        aCtx.beginPath();
+        aCtx.moveTo(0, p.size * 0.6);
+        aCtx.bezierCurveTo(-p.size * 0.7, p.size * 0.2, -p.size * 0.65, -p.size * 0.5, 0, -p.size * 0.75);
+        aCtx.bezierCurveTo(p.size * 0.65, -p.size * 0.5, p.size * 0.7, p.size * 0.2, 0, p.size * 0.6);
+        aCtx.closePath();
+
+        const pGrad = aCtx.createLinearGradient(0, p.size * 0.6, 0, -p.size * 0.75);
+        pGrad.addColorStop(0, '#e86a8a');
+        pGrad.addColorStop(0.65, p.color);
+        pGrad.addColorStop(1, '#ffffff');
+        aCtx.fillStyle = pGrad;
+        aCtx.fill();
+        aCtx.restore();
+      }
+    }
+
+    /* =========================================================================
+       9. MAIN BOUQUET SCENE RENDERING LOOP
+       ========================================================================= */
+    function renderBouquetScene(timestamp) {
+      sceneAnimationFrame = null;
+      if (document.hidden) return;
+      const time = reducedMotion ? 0 : timestamp * 0.001;
+      bCtx.clearRect(0, 0, stageW, stageH);
+
+      // Interpolate parallax
+      parallaxX += (parallaxTargetX - parallaxX) * 0.06;
+      parallaxY += (parallaxTargetY - parallaxY) * 0.06;
+
+      const baseScale = Math.min(stageW, stageH) / 650;
+      const centerX = stageW * 0.5 + parallaxX * 8;
+      const centerY = stageH * 0.51 + Math.sin(time * 1.25) * 4.5 + parallaxY * 6;
+      const globalSwayRot = Math.sin(time * 0.95) * 0.018 + parallaxX * 0.015;
+
+      bCtx.save();
+      bCtx.translate(centerX, centerY);
+      bCtx.rotate(globalSwayRot);
+
+      // 1. Back Wrapping Paper Fan
+      drawWrappingPaperBack(bCtx, 0, 0, baseScale);
+
+      // 2. Back Tulip Foliage (Broad arching leaves)
+      FOLIAGE_LAYOUT.filter(f => f.layer === 'back').forEach((leaf, idx) => {
+        const leafSway = Math.sin(time * 1.6 + idx) * 0.035;
+        drawTulipLeaf(
+          bCtx,
+          leaf.x * baseScale,
+          leaf.y * baseScale,
+          leaf.angle + leafSway,
+          leaf.len * baseScale,
+          leaf.w * baseScale,
+          leaf.bend
+        );
+      });
+
+      // 3. Back Baby's Breath Clouds
+      babySprites.filter(b => b.layer === 'back').forEach((b, idx) => {
+        const bSway = Math.cos(time * 1.5 + idx) * 0.04;
+        bCtx.save();
+        bCtx.translate(b.x * baseScale, b.y * baseScale);
+        bCtx.rotate(b.angle + bSway);
+        const drawSz = b.sprite.size * b.scale * baseScale;
+        bCtx.drawImage(b.sprite.canvas, -drawSz * 0.5, -drawSz * 0.82, drawSz, drawSz);
+        bCtx.restore();
+      });
+
+      // 4. Idle bloom wave when viewer is contemplative
+      if (!reducedMotion && !document.body.classList.contains('card-open') && pointerX < -1000 && timestamp > nextAutoShowcaseTime && tulipNodes.length > 0) {
+        const candidates = tulipNodes.filter(t => t.z >= 2);
+        const pick = candidates[Math.floor(Math.random() * candidates.length)];
+        if (pick) {
+          tulipNodes.forEach(t => {
+            const d = Math.hypot(t.x - pick.x, t.y - pick.y);
+            if (d < 145) {
+              const waveDelay = d * 1.5;
+              scheduleBloom(() => {
+                t.bloom = Math.min(t.bloom, 0.45);
+                t.targetBloom = 1.30;
+                t.vBloom = 0.15;
+                t.vScale += 0.09 * (1 - d / 160);
+                t.flareGlow = 0.95;
+                scheduleBloom(() => { t.targetBloom = 1.0; }, 520);
+              }, waveDelay);
+            }
+          });
+        }
+        nextAutoShowcaseTime = timestamp + 11000;
+      }
+
+      // 5. Individual Interactive Tulips (Rendered Back to Front)
+      tulipNodes.forEach(tulip => {
+        const breath = reducedMotion ? 1 : 1 + Math.sin(time * 2.1 + tulip.seed) * 0.022;
+
+        const localX = (tulip.x + tulip.offsetX) * baseScale;
+        const localY = (tulip.y + tulip.offsetY) * baseScale;
+        const worldX = centerX + localX * Math.cos(globalSwayRot) - localY * Math.sin(globalSwayRot);
+        const worldY = centerY + localX * Math.sin(globalSwayRot) + localY * Math.cos(globalSwayRot);
+        tulip.screenX = worldX;
+        tulip.screenY = worldY;
+        tulip.hitRadius = tulip.r * baseScale * tulip.scaleOffset * 1.1;
+
+        const dx = pointerX - worldX;
+        const dy = pointerY - worldY;
+        const dist = Math.hypot(dx, dy);
+        const hitRadius = tulip.r * baseScale * 1.1;
+
+        let targetOx = (tulip.z - 2) * parallaxX * 4.5;
+        let targetOy = (tulip.z - 2) * parallaxY * 4.5;
+        let targetScale = 1.0;
+
+        if (!reducedMotion && dist < hitRadius * 1.55) {
+          const factor = 1 - dist / (hitRadius * 1.55);
+          targetOx -= (dx / (dist || 1)) * factor * 8;
+          targetOy -= (dy / (dist || 1)) * factor * 8;
+          targetScale = 1 + factor * 0.14;
+          tulip.targetBloom = Math.max(tulip.targetBloom, 1.06 + factor * 0.28);
+          tulip.flareGlow = Math.max(tulip.flareGlow, factor * 0.75);
+        }
+
+        // Spring integration
+        tulip.vx = (tulip.vx + (targetOx - tulip.offsetX) * 0.12) * 0.78;
+        tulip.vy = (tulip.vy + (targetOy - tulip.offsetY) * 0.12) * 0.78;
+        tulip.offsetX += tulip.vx;
+        tulip.offsetY += tulip.vy;
+
+        tulip.vScale = (tulip.vScale + (targetScale - tulip.scaleOffset) * 0.14) * 0.76;
+        tulip.scaleOffset += tulip.vScale;
+
+        tulip.vBloom = (tulip.vBloom + (tulip.targetBloom - tulip.bloom) * 0.095) * 0.79;
+        tulip.bloom += tulip.vBloom;
+        tulip.flareGlow *= 0.94;
+
+        const rx = (tulip.x + tulip.offsetX) * baseScale;
+        const ry = (tulip.y + tulip.offsetY) * baseScale;
+        const totalScale = baseScale * breath * tulip.scaleOffset;
+        const drawW = tulip.sprite.logicalW * totalScale;
+        const drawH = tulip.sprite.logicalH * totalScale;
+        const baseSwayRot = reducedMotion ? 0 : Math.sin(time * 1.3 + tulip.seed) * 0.025;
+
+        bCtx.save();
+        bCtx.translate(rx, ry);
+        bCtx.rotate(baseSwayRot);
+
+        // 5A. Draw Base Shadow & Jade Receptacle
+        bCtx.drawImage(tulip.sprite.baseCanvas, -drawW * 0.5, -drawH * 0.58, drawW, drawH);
+
+        // 5B. Staggered Unfurling of Tulip Chalice Tepals
+        // Whorl 0: Back Interior & Stamens
+        // Whorl 1: Left Outer Tepal
+        // Whorl 2: Right Outer Tepal
+        // Whorl 3: Front Center Hero Tepal
+        const clampedBloom = Math.max(0, Math.min(1.0, tulip.bloom));
+        const overBloom = Math.max(0, tulip.bloom - 1.0);
+        const easeOpen = 1 - Math.pow(1 - clampedBloom, 3);
+
+        // 0. Back wall & interior (reveals smoothly as outer petals peel open)
+        const interiorOpacity = Math.max(0, Math.min(1, (clampedBloom - 0.25) / 0.75));
+        bCtx.save();
+        bCtx.globalAlpha = interiorOpacity;
+        bCtx.drawImage(tulip.sprite.whorlCanvases[0], -drawW * 0.5, -drawH * 0.58, drawW, drawH);
+        bCtx.restore();
+
+        // 1. Left Outer Tepal (rotates counter-clockwise and peels outwards)
+        const leftRot = -0.26 * easeOpen - overBloom * 0.22;
+        const leftShift = -tulip.r * 0.16 * easeOpen * baseScale;
+        bCtx.save();
+        bCtx.translate(leftShift, 0);
+        bCtx.rotate(leftRot);
+        bCtx.drawImage(tulip.sprite.whorlCanvases[1], -drawW * 0.5, -drawH * 0.58, drawW, drawH);
+        bCtx.restore();
+
+        // 2. Right Outer Tepal (rotates clockwise and peels outwards)
+        const rightRot = 0.26 * easeOpen + overBloom * 0.22;
+        const rightShift = tulip.r * 0.16 * easeOpen * baseScale;
+        bCtx.save();
+        bCtx.translate(rightShift, 0);
+        bCtx.rotate(rightRot);
+        bCtx.drawImage(tulip.sprite.whorlCanvases[2], -drawW * 0.5, -drawH * 0.58, drawW, drawH);
+        bCtx.restore();
+
+        // 3. Front Center Hero Tepal (cupping forward, scaling with blooming surge)
+        const frontScaleY = 1.0 - easeOpen * 0.05 + overBloom * 0.12;
+        const frontScaleX = 1.0 + easeOpen * 0.08 + overBloom * 0.18;
+        bCtx.save();
+        bCtx.scale(frontScaleX, frontScaleY);
+        bCtx.drawImage(tulip.sprite.whorlCanvases[3], -drawW * 0.5, -drawH * 0.58, drawW, drawH);
+        bCtx.restore();
+
+        // 5C. Warm Sunlit Bloom Glow when flower surges open
+        const activeGlow = Math.max(tulip.flareGlow, Math.max(0, (tulip.bloom - 1.05) * 2.2));
+        if (activeGlow > 0.03) {
+          const glowR = tulip.r * totalScale * 1.18;
+          const sunGlow = bCtx.createRadialGradient(0, -tulip.r * 0.2 * totalScale, glowR * 0.08, 0, 0, glowR);
+          sunGlow.addColorStop(0, `rgba(255, 245, 235, ${Math.min(0.55, activeGlow * 0.55)})`);
+          sunGlow.addColorStop(0.5, `rgba(255, 190, 205, ${Math.min(0.35, activeGlow * 0.35)})`);
+          sunGlow.addColorStop(1, 'rgba(255, 190, 205, 0)');
+          bCtx.save();
+          bCtx.globalCompositeOperation = 'screen';
+          bCtx.fillStyle = sunGlow;
+          bCtx.beginPath();
+          bCtx.arc(0, 0, glowR, 0, Math.PI * 2);
+          bCtx.fill();
+          bCtx.restore();
+        }
+
+        bCtx.restore();
+      });
+
+      // 6. Foreground Cascading Leaves & Airy Baby's Breath
+      FOLIAGE_LAYOUT.filter(f => f.layer === 'front').forEach((leaf, idx) => {
+        const leafSway = Math.sin(time * 1.8 + idx * 2) * 0.03;
+        drawTulipLeaf(
+          bCtx,
+          leaf.x * baseScale,
+          leaf.y * baseScale,
+          leaf.angle + leafSway,
+          leaf.len * baseScale,
+          leaf.w * baseScale,
+          leaf.bend
+        );
+      });
+
+      babySprites.filter(b => b.layer === 'front').forEach((b, idx) => {
+        const bSway = Math.sin(time * 1.6 + idx) * 0.035;
+        bCtx.save();
+        bCtx.translate(b.x * baseScale, b.y * baseScale);
+        bCtx.rotate(b.angle + bSway);
+        const drawSz = b.sprite.size * b.scale * baseScale;
+        bCtx.drawImage(b.sprite.canvas, -drawSz * 0.5, -drawSz * 0.82, drawSz, drawSz);
+        bCtx.restore();
+      });
+
+      // 7. Front Wrapping Paper Cone, Ribbon & Swinging Gift Tag
+      drawWrappingPaperFrontAndRibbon(bCtx, 0, 0, baseScale, time);
+
+      bCtx.restore();
+
+      // Ambient Petals falling
+      renderAmbientPetals(time);
+      if (!reducedMotion) requestSceneRender();
+    }
+
+    function announceTulip(tulip) {
+      playTulipChime(tulip.seed);
+      document.dispatchEvent(new CustomEvent('bouquet:rose', { detail: { message: tulip.whisper } }));
+    }
+
+    /* =========================================================================
+       10. POINTER & KEYBOARD INTERACTIONS
+       ========================================================================= */
+    function setupInteractions() {
+      function getCanvasCoords(event) {
+        const rect = bouquetCanvas.getBoundingClientRect();
+        return {
+          x: (event.clientX - rect.left),
+          y: (event.clientY - rect.top)
+        };
+      }
+
+      function handlePointerMove(event) {
+        const coords = getCanvasCoords(event);
+        pointerX = coords.x;
+        pointerY = coords.y;
+
+        const normX = (event.clientX / winW - 0.5) * 2;
+        const normY = (event.clientY / winH - 0.5) * 2;
+        parallaxTargetX = normX;
+        parallaxTargetY = normY;
+        requestSceneRender();
+      }
+
+      function handlePointerLeave() {
+        pointerX = -9999;
+        pointerY = -9999;
+        parallaxTargetX = 0;
+        parallaxTargetY = 0;
+        requestSceneRender();
+      }
+
+      function handlePointerDown(event) {
+        const coords = getCanvasCoords(event);
+        const rect = bouquetCanvas.getBoundingClientRect();
+
+        // Check if any tulip was tapped/clicked
+        let clickedTulip = null;
+        let minD = Infinity;
+
+        tulipNodes.forEach(tulip => {
+          const d = Math.hypot(coords.x - tulip.screenX, coords.y - tulip.screenY);
+          if (d < tulip.hitRadius && d < minD) {
+            minD = d;
+            clickedTulip = tulip;
+          }
+        });
+
+        if (clickedTulip) {
+          // Surge bloom on clicked flower
+          clickedTulip.targetBloom = 1.35;
+          clickedTulip.vBloom = 0.16;
+          clickedTulip.vScale = 0.12;
+          clickedTulip.flareGlow = 0.98;
+
+          spawnPetalBurst(rect.left + clickedTulip.screenX, rect.top + clickedTulip.screenY, 12);
+          announceTulip(clickedTulip);
+
+          // Wave ripple to surrounding tulips
+          tulipNodes.forEach(t => {
+            if (t !== clickedTulip) {
+              const dist = Math.hypot(t.x - clickedTulip.x, t.y - clickedTulip.y);
+              if (dist < 130) {
+                scheduleBloom(() => {
+                  t.targetBloom = 1.20;
+                  t.vBloom = 0.08;
+                  scheduleBloom(() => { t.targetBloom = 1.0; }, 420);
+                }, dist * 1.5);
+              }
+            }
+          });
+
+          scheduleBloom(() => { clickedTulip.targetBloom = 1.0; }, 600);
+        } else {
+          // Spurt of petals anywhere on stage
+          spawnPetalBurst(event.clientX, event.clientY, 7);
+        }
+
+        requestSceneRender();
+      }
+
+      bouquetWrapper.addEventListener('mousemove', handlePointerMove);
+      bouquetWrapper.addEventListener('mouseleave', handlePointerLeave);
+      bouquetWrapper.addEventListener('pointerdown', handlePointerDown);
+
+      window.addEventListener('mousemove', e => {
+        parallaxTargetX = (e.clientX / winW - 0.5) * 2;
+        parallaxTargetY = (e.clientY / winH - 0.5) * 2;
+        requestSceneRender();
+      });
+
+      // Keyboard navigation
+      bouquetWrapper.addEventListener('keydown', event => {
+        if (tulipNodes.length === 0) return;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          event.preventDefault();
+          keyboardTulipIndex = (keyboardTulipIndex + 1) % tulipNodes.length;
+          const target = tulipNodes[keyboardTulipIndex];
+          announceTulip(target);
+          target.targetBloom = 1.25;
+          scheduleBloom(() => { target.targetBloom = 1.0; }, 450);
+          requestSceneRender();
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          keyboardTulipIndex = (keyboardTulipIndex - 1 + tulipNodes.length) % tulipNodes.length;
+          const target = tulipNodes[keyboardTulipIndex];
+          announceTulip(target);
+          target.targetBloom = 1.25;
+          scheduleBloom(() => { target.targetBloom = 1.0; }, 450);
+          requestSceneRender();
+        } else if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          const target = tulipNodes[keyboardTulipIndex];
+          announceTulip(target);
+          target.targetBloom = 1.35;
+          const rect = bouquetCanvas.getBoundingClientRect();
+          spawnPetalBurst(rect.left + target.screenX, rect.top + target.screenY, 12);
+          scheduleBloom(() => { target.targetBloom = 1.0; }, 450);
+          requestSceneRender();
+        }
+      });
+    }
+
+    /* =========================================================================
+       11. GREETING CARD (DIALOG, REFLOW ANIMATION & PERSONALIZATION FORM)
+       ========================================================================= */
+    const STORAGE_KEY = 'flower.greeting.20-10.jian.v1';
+    const defaultGreeting = {
+      recipient: 'Jian',
+      message: 'Nhân ngày Phụ nữ Việt Nam 20/10, chúc Jian luôn ngập tràn niềm vui, bình an và luôn giữ trọn nụ cười rạng rỡ trên môi.\n\nMong Jian luôn được yêu thương từ những điều nhỏ bé nhất, có nhiều thời gian cho bản thân và luôn tự tin theo đuổi mọi ước mơ mình ấp ủ.\n\nHôm nay và cả những ngày tháng sau này, hãy luôn tỏa sáng rực rỡ và xinh đẹp theo cách riêng của Jian nhé!',
+      sender: 'Một người bạn quý mến Jian ♡'
+    };
+
+    const dialog = document.getElementById('greetingCard');
+    const openButton = document.getElementById('openCard');
+    const reading = document.getElementById('cardReading');
+    const editor = document.getElementById('cardEditor');
+    const editButton = document.getElementById('editCard');
+    const status = document.getElementById('cardStatus');
+    const closeButton = document.getElementById('closeCard');
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const desktopLayout = window.matchMedia('(min-width: 1100px)');
+    const sceneElements = [...document.querySelectorAll('.bouquet-composition, .scene-footer')];
+    const layoutAnimations = new Set();
+    const album = document.getElementById('memoryAlbum');
+    const albumToggle = document.getElementById('toggleAlbum');
+
+    const albumObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        album.classList.add('is-revealed');
+        albumObserver.unobserve(album);
+      }
+    }, { threshold: 0.08 });
+
+    let albumRevealPromise;
+    function revealAlbum() {
+      if (albumRevealPromise) return albumRevealPromise;
+      const photos = [...album.querySelectorAll('img')];
+      photos.forEach(photo => { photo.loading = 'eager'; });
+      albumRevealPromise = Promise.resolve(window.albumPhotosReady)
+        .then(() => Promise.allSettled(photos.map(photo => photo.decode())))
+        .then(() => {
+          album.hidden = false;
+          albumObserver.observe(album);
+        });
+      return albumRevealPromise;
+    }
+
+    albumToggle.addEventListener('click', () => {
+      const expanded = album.classList.toggle('is-spread');
+      albumToggle.setAttribute('aria-expanded', String(expanded));
+      albumToggle.innerHTML = expanded ? 'Gấp album <span aria-hidden="true">♡</span>' : 'Xòe album <span aria-hidden="true">♡</span>';
+    });
+
+    document.getElementById('viewAlbum').addEventListener('click', async () => {
+      await revealAlbum();
+      album.classList.add('is-revealed');
+      album.scrollIntoView({ behavior: motion.matches ? 'instant' : 'smooth', block: 'start' });
+      albumToggle.focus({ preventScroll: true });
+    });
+
+    function reflowScene(changeLayout) {
+      layoutAnimations.forEach(animation => animation.cancel());
+      layoutAnimations.clear();
+      const before = sceneElements.map(element => {
+        const rect = element.getBoundingClientRect();
+        return { left: rect.left + window.scrollX, top: rect.top + window.scrollY, width: rect.width, height: rect.height };
+      });
+      changeLayout();
+      if (motion.matches) return;
+      sceneElements.forEach((element, index) => {
+        const after = element.getBoundingClientRect();
+        if (!after.width || !after.height) return;
+        const dx = before[index].left - after.left - window.scrollX;
+        const dy = before[index].top - after.top - window.scrollY;
+        const scale = element.matches('.bouquet-composition')
+          ? ` scale(${before[index].width / after.width}, ${before[index].height / after.height})` : '';
+        const animation = element.animate([
+          { transform: `translate(${dx}px, ${dy}px)${scale}` },
+          { transform: 'none' }
+        ], { duration: 600, easing: 'cubic-bezier(.2,.8,.2,1)' });
+        layoutAnimations.add(animation);
+        animation.onfinish = () => layoutAnimations.delete(animation);
+      });
+    }
+
+    function revealCard() {
+      const rect = dialog.getBoundingClientRect();
+      if (!desktopLayout.matches || rect.top < 16 || rect.top > window.innerHeight * 0.35 || rect.bottom > window.innerHeight - 16) {
+        dialog.scrollIntoView({ behavior: motion.matches ? 'instant' : 'smooth', block: 'start' });
+      }
+    }
+
+    function setCardOpen(open) {
+      if (dialog.open === open) return;
+      reflowScene(() => {
+        if (open) {
+          showReading();
+          status.textContent = '';
+          document.body.classList.add('card-open');
+          dialog.show();
+        } else {
+          dialog.close();
+          document.body.classList.remove('card-open');
+          showReading();
+        }
+        openButton.setAttribute('aria-expanded', String(open));
+        openButton.querySelector('.envelope-action').textContent = open ? 'Gấp thiệp' : 'Mở thiệp';
+      });
+      if (open) {
+        closeButton.focus({ preventScroll: true });
+        revealAlbum();
+        revealCard();
+        spawnPetalBurst(winW * 0.5, winH * 0.3, 16);
+      } else {
+        openButton.focus({ preventScroll: true });
+        const rect = openButton.getBoundingClientRect();
+        if (rect.top < 0 || rect.bottom > window.innerHeight) {
+          openButton.scrollIntoView({ behavior: motion.matches ? 'instant' : 'smooth', block: 'center' });
+        }
+      }
+    }
+
+    const inputs = {
+      recipient: document.getElementById('recipientInput'),
+      message: document.getElementById('messageInput'),
+      sender: document.getElementById('senderInput')
+    };
+    let greeting = { ...defaultGreeting };
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved && Object.keys(inputs).every(key => typeof saved[key] === 'string'
+        && saved[key].trim().length > 0 && saved[key].length <= inputs[key].maxLength)) {
+        greeting = Object.fromEntries(Object.keys(inputs).map(key => [key, saved[key].trim()]));
+      }
+    } catch {
+      // Keep default
+    }
+
+    function renderGreeting() {
+      document.getElementById('cardRecipient').textContent = greeting.recipient;
+      const paragraphs = greeting.message.split(/\n\s*\n/).map(text => {
+        const p = document.createElement('span');
+        p.className = 'message-paragraph';
+        p.textContent = text;
+        return p;
+      });
+      document.getElementById('cardMessage').replaceChildren(...paragraphs);
+      document.getElementById('cardSender').textContent = greeting.sender;
+    }
+
+    function showReading() {
+      reading.hidden = false;
+      editor.hidden = true;
+      dialog.setAttribute('aria-labelledby', 'cardTitle');
+      dialog.scrollTop = 0;
+    }
+
+    document.addEventListener('bouquet:ready', () => {
+      openButton.hidden = false;
+    });
+
+    document.addEventListener('bouquet:rose', event => {
+      const wish = document.getElementById('roseWish');
+      wish.classList.remove('is-new');
+      wish.textContent = event.detail.message;
+      void wish.offsetWidth;
+      wish.classList.add('is-new');
+    });
+
+    document.getElementById('replayBloom').addEventListener('click', () => {
+      triggerBouquetBloomWave(0, -30, 'grand');
+      document.getElementById('roseWish').textContent = '';
+      spawnPetalBurst(winW * 0.5, winH * 0.4, 15);
+    });
+
+    openButton.addEventListener('click', () => setCardOpen(!dialog.open));
+    closeButton.addEventListener('click', () => setCardOpen(false));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && dialog.open && !event.defaultPrevented) {
+        event.preventDefault();
+        setCardOpen(false);
+      }
+    });
+
+    dialog.addEventListener('close', () => {
+      if (dialog.open || !document.body.classList.contains('card-open')) return;
+      document.body.classList.remove('card-open');
+      openButton.setAttribute('aria-expanded', 'false');
+      openButton.querySelector('.envelope-action').textContent = 'Mở thiệp';
+      showReading();
+    });
+
+    editButton.addEventListener('click', () => {
+      Object.keys(inputs).forEach(key => {
+        inputs[key].value = greeting[key];
+        inputs[key].setCustomValidity('');
+      });
+      reading.hidden = true;
+      editor.hidden = false;
+      status.textContent = '';
+      dialog.setAttribute('aria-labelledby', 'editorTitle');
+      dialog.scrollTop = 0;
+      inputs.recipient.focus({ preventScroll: true });
+      revealCard();
+    });
+
+    document.getElementById('cancelEdit').addEventListener('click', () => {
+      showReading();
+      editButton.focus({ preventScroll: true });
+      revealCard();
+    });
+
+    Object.values(inputs).forEach(input => {
+      input.addEventListener('input', () => input.setCustomValidity(''));
+    });
+
+    editor.addEventListener('submit', event => {
+      event.preventDefault();
+      for (const input of Object.values(inputs)) {
+        input.setCustomValidity(input.value.trim() ? '' : 'Bạn viết vài chữ vào đây nhé.');
+      }
+      if (!editor.reportValidity()) return;
+      greeting = Object.fromEntries(Object.entries(inputs).map(([key, input]) => [key, input.value.trim()]));
+      renderGreeting();
+      showReading();
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(greeting));
+        status.textContent = 'Đã lưu lời chúc của bạn.';
+      } catch {
+        status.textContent = 'Đã cập nhật thiệp. Trình duyệt chưa cho phép lưu để dùng lần sau.';
+      }
+      editButton.focus({ preventScroll: true });
+      revealCard();
+    });
+
+    renderGreeting();
+
+    /* =========================================================================
+       12. MEMORY ALBUM FOR JIAN (LOCAL PREVIEW, CANVAS RESIZE & LOCAL STORAGE)
+       ========================================================================= */
+    const editAlbumBtn = document.getElementById('editAlbum');
+    const albumHint = document.getElementById('albumEditHint');
+    const albumStatus = document.getElementById('albumStatus');
+    const cards = [...album.querySelectorAll('.album-card')];
+    const MAX_FILE_SIZE = 20 * 1024 * 1024;
+    let albumEditing = false;
+
+    function setAlbumEditing(open) {
+      albumEditing = open;
+      if (open && !album.classList.contains('is-spread')) albumToggle.click();
+      cards.forEach(card => { card.querySelector('.photo-actions').hidden = !open; });
+      albumHint.hidden = !open;
+      editAlbumBtn.setAttribute('aria-expanded', String(open));
+      editAlbumBtn.textContent = open ? 'Xong' : 'Thay ảnh ✎';
+    }
+
+    editAlbumBtn.addEventListener('click', () => setAlbumEditing(!albumEditing));
+    albumToggle.addEventListener('click', () => {
+      if (albumEditing && !album.classList.contains('is-spread')) setAlbumEditing(false);
+    });
+
+    async function preparePhoto(file) {
+      const url = URL.createObjectURL(file);
+      try {
+        const image = new Image();
+        image.src = url;
+        await image.decode();
+        const scale = Math.min(1, 1024 / Math.max(image.naturalWidth, image.naturalHeight));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+        canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+        const context = canvas.getContext('2d');
+        context.fillStyle = '#fffdfb';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        return canvas.toDataURL('image/jpeg', 0.85);
+      } finally {
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    window.albumPhotosReady = Promise.allSettled(cards.map(async (card, index) => {
+      const photo = card.querySelector('img');
+      const input = card.querySelector('.photo-input');
+      const change = card.querySelector('.change-photo');
+      const reset = card.querySelector('.reset-photo');
+      const original = photo.getAttribute('src');
+      const key = `flower.album.photo.20-10.jian.v2.${index}`;
+      let busy = false;
+
+      change.addEventListener('click', () => {
+        input.value = '';
+        input.click();
+      });
+
+      input.addEventListener('change', async () => {
+        const file = input.files[0];
+        if (!file || busy) return;
+        if (!file.type.startsWith('image/')) {
+          albumStatus.textContent = 'Bạn chọn một tệp ảnh nhé (JPG, PNG hoặc WebP).';
+          return;
+        }
+        if (file.size > MAX_FILE_SIZE) {
+          albumStatus.textContent = 'Ảnh quá lớn. Bạn chọn ảnh nhỏ hơn hoặc bằng 20 MB nhé.';
+          return;
+        }
+        busy = true;
+        change.disabled = true;
+        reset.disabled = true;
+        card.setAttribute('aria-busy', 'true');
+        albumStatus.textContent = `Đang xử lý ảnh thứ ${index + 1}…`;
+        const previous = photo.getAttribute('src');
+        try {
+          const data = await preparePhoto(file);
+          photo.src = data;
+          await photo.decode();
+          try {
+            localStorage.setItem(key, data);
+            albumStatus.textContent = `Đã lưu ảnh thứ ${index + 1}.`;
+          } catch {
+            albumStatus.textContent = 'Đã thay ảnh. Trình duyệt chưa lưu được ảnh để dùng lần sau.';
+          }
+        } catch {
+          photo.src = previous;
+          albumStatus.textContent = 'Chưa đọc được ảnh này. Bạn thử ảnh JPG, PNG hoặc WebP khác nhé.';
+        } finally {
+          busy = false;
+          change.disabled = false;
+          reset.disabled = photo.getAttribute('src') === original;
+          card.removeAttribute('aria-busy');
+        }
+      });
+
+      reset.addEventListener('click', () => {
+        photo.src = original;
+        input.value = '';
+        reset.disabled = true;
+        try {
+          localStorage.removeItem(key);
+          albumStatus.textContent = `Đã khôi phục ảnh thứ ${index + 1}.`;
+        } catch {
+          albumStatus.textContent = 'Đã khôi phục ảnh.';
+        }
+        change.focus({ preventScroll: true });
+      });
+
+      try {
+        const saved = localStorage.getItem(key);
+        if (!saved || !saved.startsWith('data:image/jpeg;base64,')) return;
+        const image = new Image();
+        image.src = saved;
+        await image.decode();
+        photo.src = saved;
+        reset.disabled = false;
+      } catch {
+        // Keep original
+      }
+    }));
+
+    /* =========================================================================
+       13. STARTUP SEQUENCE
+       ========================================================================= */
+    initBotanicalAssets();
+    initAmbientPetals();
+    setupInteractions();
+    window.addEventListener('resize', resizeCanvases);
+
+    // Initial canvas sizing and bloom entrance
+    requestAnimationFrame(() => {
+      resizeCanvases();
+      triggerBouquetBloomWave(0, -30, 'grand');
+      requestSceneRender();
+    });
+  })();
+  </script>
+</body>
+</html>
